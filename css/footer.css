@@ -1,0 +1,207 @@
+/* ============================================================
+   FOOTER.CSS — Rodapé do Site
+   v3.0 — Premium Editorial
+   ============================================================ */
+
+.footer-section {
+  background: var(--color-background);
+  overflow: hidden;
+  position: relative;
+  padding-top: clamp(4rem, 9vw, 7rem);
+  padding-bottom: 0;
+}
+
+
+/* ==================================================
+   BLOCO CENTRAL
+   ================================================== */
+
+.footer__inner {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.footer__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.footer__headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--color-primary);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.footer__headline-muted {
+  color: var(--color-muted);
+}
+
+
+/* ==================================================
+   BOTÃO WHATSAPP
+   ================================================== */
+
+.footer__actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.footer__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.8rem;
+  min-height: 48px;
+  background: rgba(37,211,102,0.08);
+  border: 1px solid rgba(37,211,102,0.28);
+  border-radius: var(--radius-sm);
+  color: #16a34a;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background   var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.footer__whatsapp:hover {
+  opacity: 1;
+  background: rgba(37,211,102,0.15);
+  border-color: rgba(37,211,102,0.5);
+}
+
+
+/* ==================================================
+   NAVEGAÇÃO
+   ================================================== */
+
+.footer__nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.footer__nav a {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  transition: color var(--transition-fast);
+}
+
+.footer__nav a:hover {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
+
+/* ==================================================
+   WORDMARK DECORATIVO
+   ================================================== */
+
+.footer__wordmark {
+  font-family: var(--font-heading);
+  font-size: clamp(5rem, 20vw, 13rem);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  opacity: 0.04;
+  text-align: center;
+  line-height: 1;
+  white-space: nowrap;
+  margin-top: 2rem;
+  margin-bottom: -0.15em;
+  user-select: none;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ==================================================
+   BOTTOM BAR
+   ================================================== */
+
+.footer__bottom {
+  position: relative;
+  z-index: 2;
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer__copy {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+.footer__crafted {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.footer__crafted a {
+  color: var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1px;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.footer__crafted a:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  opacity: 1;
+}
+
+.footer__heart {
+  color: #e53e3e;
+}
+
+.footer__scroll-top {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  flex-shrink: 0;
+  transition:
+    border-color var(--transition-fast),
+    color        var(--transition-fast);
+}
+
+.footer__scroll-top:hover {
+  opacity: 1;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}

@@ -1,0 +1,138 @@
+/* ============================================================
+   CONTACT.CSS — Seção de Contato
+   v3.0 — Inspirado em CtaCard
+   ============================================================ */
+
+.contact-section {
+  --contact-box-bg:    var(--color-dark-bg);
+  --contact-title:     var(--color-dark-text);
+  --contact-text:      rgba(255,255,255,0.5);
+  --contact-eyebrow:   rgba(255,255,255,0.3);
+  --contact-wa-bg:     rgba(37,211,102,0.12);
+  --contact-wa-border: rgba(37,211,102,0.28);
+  --contact-wa-text:   #4ade80;
+}
+
+.contact-section {
+  background: var(--color-background);
+}
+
+.contact-section .container {
+  max-width: var(--container-max, 1200px);
+  margin-inline: auto;
+  padding-inline: var(--space-md, 1.5rem);
+}
+
+/* ==================================================
+   BOX — card principal
+   ================================================== */
+
+.contact__box {
+  display: flex;
+  flex-direction: column;
+  background: var(--contact-box-bg);
+  color: var(--contact-title);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+}
+
+@media (min-width: 768px) {
+  .contact__box {
+    flex-direction: row;
+    align-items: stretch;
+  }
+}
+
+
+/* ==================================================
+   IMAGEM — 1/3 da largura (espelha md:w-1/3)
+   ================================================== */
+
+.contact__image-wrap {
+  width: 100%;
+  min-height: 220px;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .contact__image-wrap {
+    width: 33.333%;
+    min-height: unset;
+  }
+}
+
+.contact__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+/* ==================================================
+   CONTEÚDO — 2/3 da largura (espelha md:w-2/3)
+   ================================================== */
+
+.contact__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  gap: 0;
+}
+
+.contact__eyebrow {
+  color: var(--contact-eyebrow);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.contact__content h2 {
+  color: var(--contact-title);
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+}
+
+.contact__content p {
+  color: var(--contact-text);
+  font-size: var(--text-sm);
+  max-width: 42ch;
+  margin-top: var(--space-sm);
+  margin-bottom: 0;
+}
+
+
+/* ==================================================
+   BOTÃO WHATSAPP
+   ================================================== */
+
+.contact__whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 1.4rem;
+  min-height: 48px;
+  margin-top: var(--space-md);
+  align-self: flex-start;
+  background: var(--contact-wa-bg);
+  border: 1px solid var(--contact-wa-border);
+  border-radius: var(--radius-sm);
+  color: var(--contact-wa-text);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    background   var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.contact__whatsapp:hover {
+  opacity: 1;
+  background: rgba(37,211,102,0.22);
+  border-color: rgba(37,211,102,0.55);
+}

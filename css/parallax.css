@@ -1,0 +1,222 @@
+/* ============================================================
+   PARALLAX.CSS — CTA Split: texto + carrossel infinito
+   v7.0 — Adaptado para Natane Gonçalves | Psicologia Infantil
+   ============================================================ */
+
+.parallax-section {
+  background: var(--color-dark-bg);
+  color: var(--color-white);
+  overflow: hidden;
+  padding: clamp(3.5rem, 8vw, 6rem) 0;
+}
+
+.parallax-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+/* ── Coluna esquerda ── */
+.parallax-left { display: flex; flex-direction: column; }
+
+.parallax-left .mono-tag {
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.5rem;
+}
+
+.parallax-left h2 {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+}
+
+.parallax-left h2 em {
+  font-style: normal;
+  color: var(--color-tender);
+}
+
+.parallax-left > p {
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+  max-width: 38ch;
+  margin-bottom: 2rem;
+}
+
+/* Caixa CTA estilo input */
+.parallax-input-wrap {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 0.35rem 0.35rem 0.35rem 1rem;
+  gap: 0.75rem;
+  max-width: 420px;
+  transition:
+    border-color var(--transition-fast),
+    background   var(--transition-fast);
+}
+
+.parallax-input-wrap:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.10);
+}
+
+.parallax-input-wrap > i {
+  color: rgba(255,255,255,0.35);
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.parallax-input-text {
+  flex: 1;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.3);
+  min-width: 0;
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* CTA button styles moved to .parallax-cta-btn below */
+
+.parallax-sub {
+  margin-top: 0.9rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+/* ── Coluna direita — carrossel infinito ── */
+.parallax-right {
+  position: relative;
+  width: 100%;
+}
+
+.parallax-carousel {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+}
+
+.parallax-track {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  animation: parallax-scroll 22s linear infinite;
+}
+
+.parallax-carousel:hover .parallax-track {
+  animation-play-state: paused;
+}
+
+@keyframes parallax-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(var(--scroll-distance, -50%)); }
+}
+
+.parallax-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-dark-text);
+  flex-shrink: 0;
+  width: clamp(160px, 20vw, 220px);
+  aspect-ratio: 2/3;
+}
+
+.parallax-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+  filter: grayscale(15%);
+}
+
+.parallax-img:hover img {
+  transform: scale(1.04);
+  filter: grayscale(0%);
+}
+
+/* Caption sobreposta */
+.parallax-img-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.5rem 0.85rem 0.7rem;
+  background: linear-gradient(to top, rgba(74,55,40,0.85), transparent);
+}
+
+.parallax-img-caption strong {
+  display: block;
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--text-sm);
+  color: rgba(255,255,255,0.9);
+  line-height: 1.2;
+}
+
+.parallax-img-caption span {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+/* ── Responsivo ── */
+@media (max-width: 899px) {
+  .parallax-inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .parallax-left > p { max-width: 100%; }
+  .parallax-input-wrap { max-width: 100%; }
+  .parallax-img {
+    width: clamp(130px, 36vw, 190px);
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax-input-wrap {
+    flex-wrap: nowrap;
+    padding: 0.6rem 0.6rem 0.6rem 0.9rem;
+    gap: 0.5rem;
+  }
+  .parallax-input-wrap > i { display: none; }
+}
+/* CTA button — now an anchor (semantic replacement for inline button onclick) */
+.parallax-cta-btn {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1.1rem;
+  background: var(--color-white);
+  color: var(--color-dark-bg);
+  border-radius: calc(var(--radius-sm) - 2px);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    background var(--transition-fast),
+    color      var(--transition-fast);
+}
+
+.parallax-cta-btn:hover {
+  opacity: 1;
+  background: var(--color-tender);
+  color: var(--color-dark-bg);
+}

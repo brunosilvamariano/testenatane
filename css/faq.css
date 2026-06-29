@@ -1,0 +1,134 @@
+/* ============================================================
+   FAQ.CSS — Accordion Acessível
+   v2.1 — Premium Responsive
+   ============================================================ */
+
+.faq-section {
+  background: var(--color-background);
+}
+
+.faq__header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+}
+
+.faq__header h2 {
+  margin-top: var(--space-sm);
+  color: var(--color-primary);
+}
+
+.faq__list {
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.faq__item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq__item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+
+/* ==================================================
+   TRIGGER
+   ================================================== */
+
+.faq__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  padding-block: clamp(1.1rem, 2.5vw, 1.5rem);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--color-primary);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.faq__question {
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.35;
+}
+
+.faq__icon-wrap {
+  width: 2rem;
+  height: 2rem;
+  min-width: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  flex-shrink: 0;
+  transition:
+    background   var(--transition-fast),
+    border-color var(--transition-fast),
+    color        var(--transition-fast);
+}
+
+.faq__item.active .faq__icon-wrap {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-background);
+}
+
+.faq__icon {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.faq__item.active .faq__icon {
+  transform: rotate(45deg);
+}
+
+
+/* ==================================================
+   PAINEL — Animação via grid-template-rows
+   ================================================== */
+
+.faq__answer-wrapper {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.38s var(--ease-out);
+}
+
+.faq__item.active .faq__answer-wrapper {
+  grid-template-rows: 1fr;
+}
+
+.faq__answer-inner {
+  overflow: hidden;
+}
+
+.faq__answer {
+  padding-bottom: clamp(1rem, 2.5vw, 1.5rem);
+  color: var(--color-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.75;
+  max-width: 68ch;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--color-surface);
+  padding: 0.1em 0.35em;
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+}
+
+/* Touch feedback */
+@media (hover: none) {
+  .faq__trigger:active .faq__icon-wrap {
+    background: var(--color-surface);
+  }
+}

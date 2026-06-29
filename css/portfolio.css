@@ -1,0 +1,91 @@
+/* ============================================================
+   PORTFOLIO.CSS — Grid Estático de Trabalhos
+   v2.0 — Premium Responsive
+   ============================================================ */
+
+.portfolio-section {
+  background: var(--color-gray-bg);
+}
+
+.portfolio__header {
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.portfolio__header h2 {
+  margin-top: var(--space-sm);
+  color: var(--color-primary);
+}
+
+.portfolio__grid {
+  display: grid;
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+  .portfolio__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Item destaque ocupa linha inteira em desktop */
+@media (min-width: 900px) {
+  .portfolio__item:first-child {
+    grid-column: 1 / -1;
+  }
+  .portfolio__item:first-child .img-wrapper--landscape {
+    height: clamp(280px, 38vw, 480px);
+  }
+}
+
+.portfolio__item {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+/* Touch: overlay sempre visível */
+@media (hover: none) {
+  .portfolio__overlay { background: rgba(0,0,0,0.35) !important; }
+  .portfolio__info    { opacity: 1 !important; transform: none !important; }
+}
+
+.portfolio__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: flex-end;
+  padding: clamp(1rem, 2.5vw, 1.5rem);
+  transition: background var(--transition-base);
+}
+
+.portfolio__item:hover .portfolio__overlay {
+  background: rgba(0,0,0,0.45);
+}
+
+.portfolio__info {
+  transform: translateY(8px);
+  opacity: 0;
+  transition:
+    transform var(--transition-base),
+    opacity   var(--transition-base);
+  color: var(--color-dark-text);
+}
+
+.portfolio__item:hover .portfolio__info {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.portfolio__info h3 {
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  margin-bottom: 0.2rem;
+  color: var(--color-dark-text);
+}
+
+.portfolio__info p {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+}

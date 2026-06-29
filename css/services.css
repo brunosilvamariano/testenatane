@@ -1,0 +1,186 @@
+/* ============================================================
+   SERVICES.CSS — Seção Serviços  v6.0
+   ============================================================ */
+
+.services-section {
+  background: var(--color-background);
+}
+
+.services__header {
+  margin-bottom: clamp(2rem, 5vw, 4rem);
+}
+
+.services__header h2 {
+  margin-top: var(--space-sm);
+  color: var(--color-heading);
+  font-weight: 300;
+}
+
+/* ================================================
+   GRID DE 6 CARDS
+   ================================================ */
+
+.services__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 600px) {
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 960px) {
+  .services__grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.svc-ab-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ================================================
+   SVC-CARD
+   ================================================ */
+
+.svc-card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,.06);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid #0000001a;
+}
+
+.svc-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.svc-card__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--color-surface);
+  border-radius: 0.6rem;
+  color: var(--color-muted);
+  font-size: 1.1rem;
+}
+
+.svc-card__cover {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+
+.svc-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.svc-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-heading);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.svc-card__meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.svc-card__pages {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-muted);
+  text-align: right;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* ================================================
+   SVC-CONTROL  (assinatura + cta)
+   ================================================ */
+
+.svc-control {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 2px 20px rgba(0,0,0,.06);
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid #0000001a;
+}
+
+/* Wrapper da assinatura */
+.svc-control__sig-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+
+@keyframes sig-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Nome abaixo da linha */
+.svc-control__sig-name {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 0.8rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+}
+
+/* CTA */
+.svc-control__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  background: rgba(0, 0, 0, 0.85);
+  color: var(--color-background);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  transition:
+    background  var(--transition-fast),
+    transform   var(--transition-fast),
+    box-shadow  var(--transition-fast);
+}
+
+.svc-control__cta:hover {
+  background: var(--color-heading);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+}
+
+.svc-control__cta i {
+  transition: transform var(--transition-fast);
+}
+
+.svc-control__cta:hover i {
+  transform: translateX(4px);
+}

@@ -1,0 +1,161 @@
+/* ==================================================
+   BENTO GALLERY — Scroll Expand (GSAP Flip)
+   ================================================== */
+
+.bento-section {
+  background: var(--color-background);
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+
+.bento__header {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.bento__header h2 {
+  margin-top: var(--space-xs);
+}
+
+/* Ancora o pin do ScrollTrigger */
+.bento-wrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* FIX: garante que o pin do ScrollTrigger não quebre o layout */
+  will-change: transform;
+}
+
+/* Grid base */
+.bento-gallery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  flex: none;
+}
+
+/* Células */
+.bento-gallery__item {
+  position: relative;
+  overflow: hidden;
+  /* FIX: evita saltos durante a animação Flip */
+  will-change: transform;
+}
+
+.bento-gallery__item img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* FIX: evita subpixel rendering durante GSAP Flip */
+  transform: translateZ(0);
+}
+
+/* Placeholder numerado */
+.bento-gallery__placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  color: var(--color-muted);
+  letter-spacing: 0.05em;
+  pointer-events: none;
+  user-select: none;
+}
+
+.bento-gallery__item:nth-child(odd) {
+  background: color-mix(in srgb, var(--color-border) 60%, var(--color-background));
+}
+.bento-gallery__item:nth-child(even) {
+  background: color-mix(in srgb, var(--color-border) 30%, var(--color-background));
+}
+
+/* Desktop: 3 colunas — lateral | centro | lateral */
+.gallery--bento {
+  display: grid;
+  gap: 1vh;
+  grid-template-columns: 28vw 1fr 28vw;
+  grid-template-rows: repeat(2, 45vh);
+  justify-content: center;
+  align-content: center;
+}
+
+/* col 1: dois cards empilhados */
+.gallery--bento .bento-gallery__item:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
+.gallery--bento .bento-gallery__item:nth-child(2) { grid-area: 2 / 1 / 3 / 2; }
+
+/* col 2: card central ocupa as 2 linhas */
+.gallery--bento .bento-gallery__item:nth-child(3) { grid-area: 1 / 2 / 3 / 3; }
+
+/* col 3: dois cards empilhados */
+.gallery--bento .bento-gallery__item:nth-child(4) { grid-area: 1 / 3 / 2 / 4; }
+.gallery--bento .bento-gallery__item:nth-child(5) { grid-area: 2 / 3 / 3 / 4; }
+
+/* Estado final desktop: expande para tela cheia */
+.gallery--bento.gallery--bento-final {
+  grid-template-columns: 50vw 1fr 50vw;
+  grid-template-rows: repeat(2, 50vh);
+  gap: 1vh;
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gallery--bento {
+    grid-template-columns: 28vw 1fr 28vw;
+    grid-template-rows: repeat(2, 38vh);
+    gap: 0.6vh;
+  }
+
+  .gallery--bento.gallery--bento-final {
+    grid-template-columns: 50vw 1fr 50vw;
+    grid-template-rows: repeat(2, 50vh);
+    gap: 0.6vh;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .bento-wrap {
+    height: 100vh;
+  }
+
+  .bento-gallery {
+    height: 100%;
+  }
+
+  .gallery--bento {
+    grid-template-columns: 28vw 1fr 28vw;
+    grid-template-rows: repeat(2, 35vh);
+    gap: 1vw;
+  }
+
+  .gallery--bento.gallery--bento-final {
+    grid-template-columns: 50vw 1fr 50vw;
+    grid-template-rows: repeat(2, 40vh);
+    gap: 1vw;
+  }
+
+  .bento-gallery__placeholder {
+    font-size: clamp(1rem, 5vw, 1.5rem);
+  }
+}
+
+/* Reduced motion — sem animação, exibe estado final direto */
+@media (prefers-reduced-motion: reduce) {
+  .bento-wrap {
+    height: auto !important;
+  }
+  .bento-gallery {
+    height: auto !important;
+  }
+  /* FIX: mostra o grid já expandido sem JS */
+  .gallery--bento {
+    grid-template-columns: 50vw 1fr 50vw !important;
+    grid-template-rows: repeat(2, 45vh) !important;
+  }
+}

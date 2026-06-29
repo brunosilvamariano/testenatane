@@ -1,0 +1,258 @@
+/* ============================================================
+   HERO.CSS — Seção de Abertura
+   v2.0 — Premium Responsive
+   ============================================================ */
+
+.hero-section {
+  background: var(--gradient-aurora);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--header-height) + clamp(2rem, 5vw, 4rem));
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.hero__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(2.5rem, 6vw, 5rem);
+  align-items: center;
+  width: 100%;
+}
+
+/* Mobile: imagem acima do texto */
+.hero__image { order: -1; }
+.hero__text  { order: 1; }
+
+
+/* ==================================================
+   HERO — Texto
+   ================================================== */
+
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--space-lg);
+}
+
+.hero__eyebrow::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--color-muted);
+  flex-shrink: 0;
+}
+
+.hero__title {
+  color: var(--color-heading);
+  margin-bottom: var(--space-lg);
+  max-width: 14ch;
+  font-weight: 200;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.hero__title span {
+  font-style: italic;
+  color: var(--color-muted);
+  font-weight: 200;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.hero__body {
+  max-width: 48ch;
+  color: var(--color-muted);
+  margin-bottom: var(--space-xl);
+}
+
+.hero__title span#typed-word {
+  font-style: italic;
+  color: var(--color-muted);
+  font-weight: 200;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  border-right: 2px solid var(--color-muted);
+  animation: blink-cursor 0.7s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { border-color: var(--color-muted); }
+  50%       { border-color: transparent; }
+}
+
+/* ==================================================
+   HERO — CTAs
+   ================================================== */
+
+.hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 1rem 1.75rem;
+  min-height: 48px;
+  border: 1px solid var(--color-heading);
+  border-radius: var(--radius-sm);
+  color: var(--color-heading);
+  background: transparent;
+  transition:
+    background var(--transition-fast),
+    color      var(--transition-fast);
+}
+
+.hero__cta:hover {
+  opacity: 1;
+  background: var(--color-heading);
+  color: var(--color-background);
+}
+
+/* Variante ghost — preenchido por padrão, inverte no hover */
+.hero__cta--ghost {
+  background: var(--color-heading);
+  color: var(--color-background);
+}
+
+.hero__cta--ghost:hover {
+  background: transparent;
+  color: var(--color-heading);
+}
+
+.hero__cta i {
+  font-size: 0.85rem;
+  transition: transform var(--transition-fast);
+}
+
+.hero__cta:hover i { transform: translateX(4px); }
+
+
+/* ==================================================
+   HERO — Stats
+   ================================================== */
+
+.hero__stats {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-top: var(--space-xl);
+  padding-top: var(--space-lg);
+  border-top: 1px solid #00000010;
+}
+
+.hero__stats > div {
+  display: flex;
+  flex-direction: column;
+  padding-right: clamp(1.25rem, 4vw, 3rem);
+  border-right: 1px solid #00000010;
+}
+
+.hero__stats > div:not(:first-child) {
+  padding-left: clamp(1.25rem, 4vw, 3rem);
+}
+
+.hero__stats > div:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.hero__stat-num {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-weight: 500;
+  display: block;
+  color: var(--color-heading);
+}
+
+.hero__stat-label {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  display: block;
+  margin-top: 0.15rem;
+}
+
+
+/* ==================================================
+   RESPONSIVO
+   ================================================== */
+
+@media (min-width: 900px) {
+  .hero__content {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+  .hero__image { order: 1; }
+  .hero__text  { order: -1; }
+}
+
+@media (min-width: 1200px) {
+  .hero__content { grid-template-columns: 1.35fr 1fr; }
+}
+
+
+/* ==================================================
+   MOBILE
+   ================================================== */
+
+@media (max-width: 899px) {
+  .hero__text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero__eyebrow {
+    width: 100%;
+    max-width: 48ch;
+  }
+
+  .hero__text-inner {
+    width: 100%;
+    max-width: 48ch;
+    text-align: left;
+  }
+
+  .hero__title {
+    max-width: 100%;
+  }
+
+  .hero__ctas {
+    justify-content: flex-start;
+  }
+
+  .hero__stats {
+    justify-content: flex-start;
+  }
+}
+
+
+/* ==================================================
+   HERO — Wave SVG decorativa
+   ================================================== */
+
+.hero__wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  line-height: 0;         /* remove espaço fantasma do inline */
+  overflow: hidden;
+}
+
+.hero__wave img {
+  width: 100%;
+  height: auto;
+  display: block;
+}

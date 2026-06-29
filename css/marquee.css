@@ -1,0 +1,57 @@
+/* ============================================================
+   MARQUEE.CSS — Faixa de Texto Infinito
+   v2.0 — Premium Responsive
+   ============================================================ */
+
+.marquee-section {
+  --marquee-speed: 38s;
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+  background: var(--color-heading);
+  color: var(--color-tender);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+
+.marquee__wrapper {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  /* Fade nas bordas */
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee__track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee-scroll var(--marquee-speed) linear infinite;
+  will-change: transform;
+}
+
+.marquee__track:hover {
+  animation-play-state: paused;
+}
+
+.marquee__item {
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 4vw, 3.5rem);
+  font-style: italic;
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marquee__sep {
+  display: inline-block;
+  color: rgba(255,255,255,0.2);
+  font-style: normal;
+  font-size: 0.5em;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}

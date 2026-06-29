@@ -1,0 +1,383 @@
+/* ============================================================
+   BASE.CSS — Design Tokens, Reset, Tipografia, Utilitários
+   v3.0 — Refatorado: tokens limpos, sem redundâncias
+   ============================================================ */
+
+/* ==================================================
+   DESIGN TOKENS GLOBAIS
+   ================================================== */
+
+:root {
+
+  /* ── CORES PRINCIPAIS ── */
+  --color-primary:      #B5763A;   /* Terracota Dourado */
+  --color-secondary:    #C8687B;   /* Rosa Antigo */
+  --color-accent:       #D4955A;   /* Âmbar Quente */
+  --color-tender:       #E8C9A0;   /* Creme Perolado */
+
+  /* ── BACKGROUNDS ── */
+  --color-background:   #ffffff;
+  --color-surface:      #F5EDE0;
+  --color-gray-bg:      #FDF0E6;
+  --color-dark-bg:      #4A3728;
+
+  /* ── TEXTOS ── */
+  --color-dark-text:    #4A3728;
+  --color-muted:        #796141;
+  --color-white:        #FFFFFF;
+  --color-heading:      #000000;   /* headings principais */
+
+  /* ── BORDAS ── */
+  --color-border:       #E8D9C8;
+
+  /* ── GRADIENTES ── */
+  --gradient-aurora: linear-gradient(
+    160deg,
+    #c8687b20 0%,
+    #ffffff   45%,
+    #fff      50%,
+    #ffffff  100%
+  );
+
+  /* ── TIPOGRAFIA ── */
+  --font-heading: 'Fraunces', serif;
+  --font-body:    'Inter', sans-serif;
+  --font-mono:    'IBM Plex Mono', monospace;
+
+  /* ── TYPE SCALE FLUIDA ── */
+  --text-xs:   clamp(0.625rem, 0.7vw,  0.75rem);
+  --text-sm:   clamp(0.8rem,   1vw,    0.9rem);
+  --text-base: clamp(1rem,     1.4vw,  1.125rem);
+  --text-lg:   clamp(1.1rem,   1.8vw,  1.35rem);
+  --text-xl:   clamp(1.4rem,   2.5vw,  2rem);
+  --text-2xl:  clamp(2rem,     4vw,    3.2rem);
+  --text-3xl:  clamp(2.8rem,   5.5vw,  5rem);
+
+  /* ── ESPAÇAMENTO FLUIDO ── */
+  --space-2xs: clamp(0.25rem, 0.5vw,  0.5rem);
+  --space-xs:  clamp(0.5rem,  1vw,    0.75rem);
+  --space-sm:  clamp(0.75rem, 1.5vw,  1rem);
+  --space-md:  clamp(1rem,    2vw,    1.5rem);
+  --space-lg:  clamp(1.5rem,  3vw,    2.5rem);
+  --space-xl:  clamp(2.5rem,  5vw,    4rem);
+  --space-2xl: clamp(4rem,    8vw,    8rem);
+
+  /* ── CONTAINER ── */
+  --px-mobile:  1.25rem;
+  --px-tablet:  2.5rem;
+  --px-desktop: 4rem;
+  --max-width:  1440px;
+
+  /* ── BORDER RADIUS ── */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   16px;
+  --radius-xl:   24px;
+  --radius-full: 9999px;
+
+  /* ── SOMBRAS ── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.09);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.13);
+
+  /* ── TRANSIÇÕES ── */
+  --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out:     cubic-bezier(0.65, 0, 0.35, 1);
+  --transition-fast: 0.18s ease;
+  --transition-base: 0.32s ease;
+  --transition-slow: 0.55s var(--ease-out);
+
+  /* ── Z-INDEX ── */
+  --z-base:     1;
+  --z-dropdown: 100;
+  --z-overlay:  900;
+  --z-header:   1000;
+  --z-above:    1100;
+}
+
+
+/* ==================================================
+   RESET MODERNO
+   ================================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  overflow-x: hidden;
+  scroll-padding-top: var(--header-height, 76px);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  object-fit: cover;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  background: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+
+/* ==================================================
+   TIPOGRAFIA
+   ================================================== */
+
+h1 {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  line-height: 1.13;
+  letter-spacing: -0.015em;
+}
+
+h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  line-height: 1.25;
+}
+
+h4 {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  line-height: 1.3;
+}
+
+p {
+  font-size: var(--text-base);
+}
+
+.mono-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  display: inline-block;
+  color: var(--color-muted);
+}
+
+
+/* ==================================================
+   LINKS
+   ================================================== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: opacity var(--transition-fast);
+}
+
+a:hover {
+  opacity: 0.6;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+
+/* ==================================================
+   LAYOUT — Container
+   ================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--px-mobile);
+}
+
+@media (min-width: 640px) {
+  .container { padding-inline: var(--px-tablet); }
+}
+
+@media (min-width: 1024px) {
+  .container { padding-inline: var(--px-desktop); }
+}
+
+.section-padding {
+  padding-block: var(--space-2xl);
+}
+
+
+/* ==================================================
+   IMAGENS — Wrappers com Proporções
+   ================================================== */
+
+.img-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.img-wrapper img {
+  width: 100%;
+  height: 100%;
+  transition: transform var(--transition-slow);
+}
+
+.img-wrapper:hover img {
+  transform: scale(1.04);
+}
+
+.img-wrapper--hero      { height: clamp(260px, 52vw, 620px); border-radius: var(--radius-md); }
+.img-wrapper--portrait  { height: clamp(360px, 62vw, 780px); border-radius: var(--radius-md); }
+.img-wrapper--landscape { height: clamp(200px, 30vw, 400px); border-radius: var(--radius-sm); }
+.img-wrapper--gallery   { height: clamp(240px, 44vw, 480px); border-radius: var(--radius-md); }
+.img-wrapper--square    { aspect-ratio: 1; height: auto;      border-radius: var(--radius-md); }
+
+
+/* ==================================================
+   ACESSIBILIDADE
+   ================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--px-mobile);
+  z-index: calc(var(--z-above) + 10);
+  padding: 0.75rem 1.25rem;
+  background: var(--color-primary);
+  color: var(--color-background);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+
+/* ==================================================
+   REDUCED MOTION
+   ================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ==================================================
+   WAVE DIVIDERS
+   ================================================== */
+
+.wave-divider,
+.wave-divider--top {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  line-height: 0;
+  pointer-events: none;
+}
+
+.wave-divider     { bottom: 0; }
+.wave-divider--top { top: 0; }
+
+.wave-divider svg,
+.wave-divider--top svg {
+  display: block;
+  width: 100%;
+  height: clamp(60px, 8vw, 120px);
+}
+
+/* Custom properties por seção */
+.hero-section     { position: relative; --wave-fill: #796141; }
+.about-section    { position: relative; --wave-top: #ffffff; }
+.services-section { position: relative; }
+.contact-section  { position: relative; }
+
+
+/* ==================================================
+   EYEBROW — Rótulo decorativo de seção (reutilizável)
+   ================================================== */
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: var(--space-lg);
+}
+
+.section-eyebrow::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--color-muted);
+  flex-shrink: 0;
+}
