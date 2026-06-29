@@ -54,16 +54,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://unpkg.com">
 
   <!-- Preload LCP — imagem principal carrega antes de tudo -->
   <link rel="preload" as="image" href="images/hero/hero.webp" fetchpriority="high">
-
-  <!-- GSAP — defer para não bloquear render -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js" defer></script>
 
   <!-- Fontes — display:swap já evita FOIT, então pode carregar de forma não-bloqueante -->
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,500;1,9..144,380;1,9..144,440&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -897,51 +891,99 @@
   </section>
 
   <!-- ===================================================== -->
-  <!-- GALERIA — imagens com alt descritivo e contextual     -->
+  <!-- GALERIA — filmstrip editorial + lightbox (própria, sem libs) -->
   <!-- ===================================================== -->
-  <section class="bento-section" id="galeria" aria-labelledby="bento-heading">
+  <section class="gallery-section section-padding" id="galeria" aria-labelledby="gallery-heading">
     <div class="container">
-      <header class="bento__header" data-aos="fade-up">
-        <span class="mono-tag">Galeria</span>
-        <h2 id="bento-heading">Momentos em foco</h2>
+      <header class="gallery__header">
+        <p class="section-eyebrow"><span class="mono-tag">Galeria</span></p>
+        <h2 id="gallery-heading">O espaço por dentro</h2>
+        <p class="gallery__desc">Um retrato do consultório — pensado para que cada criança se sinta em casa antes mesmo de começar a sessão.</p>
       </header>
     </div>
 
-    <div class="bento-wrap">
-      <div class="bento-gallery gallery--bento" id="bentoDynamic">
+    <div class="gallery__viewport">
+      <ul class="gallery__track" role="list">
 
-        <div class="bento-gallery__item">
-          <img src="images/galeria/galeria1.webp"
-            alt="Consultório de psicologia infantil em Joinville — espaço acolhedor e seguro para crianças"
-            width="560" height="450" loading="lazy" decoding="async">
-        </div>
+        <li class="gallery__card">
+          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Onde estamos">
+            <span class="gallery__frame">
+              <img src="images/galeria/galeria123.webp"
+                alt="Fachada do prédio do consultório de psicologia infantil em Joinville"
+                width="560" height="900" loading="lazy" decoding="async">
+              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+            </span>
+          </button>
+          <p class="gallery__caption">
+            <span class="gallery__index">01</span>
+            <span class="gallery__caption-text">Onde estamos</span>
+          </p>
+        </li>
 
-        <div class="bento-gallery__item">
-          <img src="images/galeria/galeria2.webp"
-            alt="Natane Gonçalves, psicóloga infantil, durante atendimento com criança em Joinville-SC"
-            width="560" height="450" loading="lazy" decoding="async">
-        </div>
+        <li class="gallery__card">
+          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Espaço lúdico">
+            <span class="gallery__frame">
+              <img src="images/galeria/galeria1.webp"
+                alt="Estante com brinquedos e materiais lúdicos usados na psicoterapia infantil"
+                width="560" height="450" loading="lazy" decoding="async">
+              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+            </span>
+          </button>
+          <p class="gallery__caption">
+            <span class="gallery__index">02</span>
+            <span class="gallery__caption-text">Espaço lúdico</span>
+          </p>
+        </li>
 
-        <div class="bento-gallery__item">
-          <img src="images/galeria/galeria123.webp"
-            alt="Materiais lúdicos e terapêuticos utilizados na psicoterapia infantil — jogos e brinquedos"
-            width="560" height="900" loading="lazy" decoding="async">
-        </div>
+        <li class="gallery__card">
+          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Ambiente de trabalho">
+            <span class="gallery__frame">
+              <img src="images/galeria/galeria4.webp"
+                alt="Mesa de atendimento do consultório de psicologia infantil em Joinville"
+                width="560" height="450" loading="lazy" decoding="async">
+              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+            </span>
+          </button>
+          <p class="gallery__caption">
+            <span class="gallery__index">03</span>
+            <span class="gallery__caption-text">Ambiente de trabalho</span>
+          </p>
+        </li>
 
-        <div class="bento-gallery__item">
-          <img src="images/galeria/galeria3.webp"
-            alt="Espaço terapêutico da psicóloga Natane Gonçalves em Joinville — ambiente infantil seguro"
-            width="560" height="450" loading="lazy" decoding="async">
-        </div>
+        <li class="gallery__card">
+          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Conforto, cor e leveza">
+            <span class="gallery__frame">
+              <img src="images/galeria/galeria2.webp"
+                alt="Pelúcias coloridas no sofá do consultório — ambiente acolhedor para crianças"
+                width="560" height="450" loading="lazy" decoding="async">
+              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+            </span>
+          </button>
+          <p class="gallery__caption">
+            <span class="gallery__index">04</span>
+            <span class="gallery__caption-text">Conforto, cor e leveza</span>
+          </p>
+        </li>
 
-        <div class="bento-gallery__item">
-          <img src="images/galeria/galeria4.webp"
-            alt="Sessão de orientação familiar com psicóloga infantil — pais e responsáveis no processo terapêutico"
-            width="560" height="450" loading="lazy" decoding="async">
-        </div>
+        <li class="gallery__card">
+          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Pequenos detalhes">
+            <span class="gallery__frame">
+              <img src="images/galeria/galeria3.webp"
+                alt="Detalhes e materiais terapêuticos sobre a bancada do consultório infantil"
+                width="560" height="450" loading="lazy" decoding="async">
+              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
+            </span>
+          </button>
+          <p class="gallery__caption">
+            <span class="gallery__index">05</span>
+            <span class="gallery__caption-text">Pequenos detalhes</span>
+          </p>
+        </li>
 
-      </div>
+      </ul>
     </div>
+
+    <p class="gallery__hint mono-tag" aria-hidden="true">Arraste para o lado <i class="bi bi-arrow-right"></i></p>
   </section>
 
   <!-- ===================================================== -->
@@ -1101,6 +1143,29 @@
 
   </div>
 </footer>
+
+<!-- ===================================================== -->
+<!-- LIGHTBOX — visualização ampliada da galeria          -->
+<!-- ===================================================== -->
+<div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da galeria" aria-hidden="true">
+  <button type="button" class="lightbox__close" data-gallery-close aria-label="Fechar">
+    <i class="bi bi-x-lg" aria-hidden="true"></i>
+  </button>
+  <button type="button" class="lightbox__nav lightbox__nav--prev" data-gallery-prev aria-label="Foto anterior">
+    <i class="bi bi-chevron-left" aria-hidden="true"></i>
+  </button>
+  <button type="button" class="lightbox__nav lightbox__nav--next" data-gallery-next aria-label="Próxima foto">
+    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+  </button>
+
+  <figure class="lightbox__figure">
+    <img class="lightbox__img" src="" alt="">
+    <figcaption class="lightbox__caption">
+      <span class="lightbox__index"></span>
+      <span class="lightbox__text"></span>
+    </figcaption>
+  </figure>
+</div>
 
 <!-- SCRIPTS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>

@@ -175,57 +175,136 @@ const qsa = (sel, parent = document) => parent.querySelectorAll(sel);
 
 
 /* ==================================================
-   BENTO GALLERY — GSAP Flip + ScrollTrigger
+   GALERIA — Filmstrip Editorial + Lightbox (própria, sem libs)
    ================================================== */
 
-(function initBentoGallery() {
+(function initGallery() {
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (typeof gsap === 'undefined' || typeof Flip === 'undefined') return;
+  const viewport = qs('.gallery__viewport');
+  const cards    = qsa('.gallery__card');
+  const header   = qs('.gallery__header');
+  if (!viewport || !cards.length) return;
 
-  gsap.registerPlugin(ScrollTrigger, Flip);
+  const cardsArr = Array.from(cards);
 
-  const galleryEl = qs('#bentoDynamic');
-  if (!galleryEl) return;
+  /* --- Reveal de entrada (stagger automático) --- */
+  const revealTargets = header ? [header, ...cardsArr] : cardsArr;
+  const reduceMotion  = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const galleryItems = galleryEl.querySelectorAll('.bento-gallery__item');
-  const wrap         = galleryEl.parentNode;
-
-  let flipCtx;
-
-  function createTween() {
-    if (flipCtx) flipCtx.revert();
-    galleryEl.classList.remove('gallery--bento-final');
-
-    flipCtx = gsap.context(() => {
-      galleryEl.classList.add('gallery--bento-final');
-      const flipState = Flip.getState(galleryItems);
-      galleryEl.classList.remove('gallery--bento-final');
-
-      const flip = Flip.to(flipState, { simple: true, ease: 'none' });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: galleryEl,
-          start:   'center center',
-          end:     '+=100%',
-          scrub:   true,
-          pin:     wrap,
-        },
+  if (reduceMotion || typeof IntersectionObserver === 'undefined') {
+    revealTargets.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const i = cardsArr.indexOf(entry.target);
+        const delay = i > -1 ? Math.min(i, 5) * 80 : 0;
+        setTimeout(() => entry.target.classList.add('is-visible'), delay);
+        obs.unobserve(entry.target);
       });
+    }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
 
-      tl.add(flip);
-
-      return () => gsap.set(galleryItems, { clearProps: 'all' });
-    });
+    revealTargets.forEach(el => revealObserver.observe(el));
   }
 
-  createTween();
+  /* --- Arraste com mouse no desktop (touch já tem scroll nativo) --- */
+  let isDragging   = false;
+  let dragMoved     = false;
+  let dragStartX    = 0;
+  let dragStartLeft = 0;
 
-  let resizeTimer;
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(createTween, 200);
+  viewport.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'touch') return;
+    isDragging   = true;
+    dragMoved    = false;
+    dragStartX    = e.clientX;
+    dragStartLeft = viewport.scrollLeft;
+    viewport.classList.add('is-dragging');
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (!isDragging) return;
+    const dx = e.clientX - dragStartX;
+    if (Math.abs(dx) > 4) dragMoved = true;
+    viewport.scrollLeft = dragStartLeft - dx;
+  });
+
+  window.addEventListener('pointerup', () => {
+    isDragging = false;
+    viewport.classList.remove('is-dragging');
+  });
+
+  /* --- Lightbox --- */
+  const lightbox = qs('#galleryLightbox');
+  if (!lightbox) return;
+
+  const lbImg   = qs('.lightbox__img', lightbox);
+  const lbIndex = qs('.lightbox__index', lightbox);
+  const lbText  = qs('.lightbox__text', lightbox);
+  const lbClose = qs('[data-gallery-close]', lightbox);
+  const triggers = qsa('.gallery__trigger');
+
+  let currentIndex = 0;
+  let lastFocused  = null;
+
+  function updateLightbox() {
+    const trigger = triggers[currentIndex];
+    if (!trigger) return;
+    const card = trigger.closest('.gallery__card');
+    const img  = qs('img', trigger);
+
+    lbImg.src = img.currentSrc || img.src;
+    lbImg.alt = img.alt;
+    lbText.textContent  = card.querySelector('.gallery__caption-text')?.textContent || '';
+    lbIndex.textContent = card.querySelector('.gallery__index')?.textContent || '';
+  }
+
+  function openLightbox(index) {
+    if (dragMoved) return; // evita abrir o lightbox depois de um arraste
+    currentIndex = index;
+    updateLightbox();
+    lastFocused = document.activeElement;
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lightbox-open');
+    lbClose?.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lightbox-open');
+    lastFocused?.focus();
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + triggers.length) % triggers.length;
+    updateLightbox();
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % triggers.length;
+    updateLightbox();
+  }
+
+  triggers.forEach((trigger, i) => {
+    trigger.addEventListener('click', () => openLightbox(i));
+  });
+
+  lbClose?.addEventListener('click', closeLightbox);
+  qs('[data-gallery-prev]', lightbox)?.addEventListener('click', showPrev);
+  qs('[data-gallery-next]', lightbox)?.addEventListener('click', showNext);
+
+  // Clique no fundo (fora da figura) fecha
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape')     closeLightbox();
+    if (e.key === 'ArrowLeft')  showPrev();
+    if (e.key === 'ArrowRight') showNext();
   });
 
 }());

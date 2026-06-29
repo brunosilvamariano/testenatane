@@ -1,161 +1,341 @@
-/* ==================================================
-   BENTO GALLERY — Scroll Expand (GSAP Flip)
-   ================================================== */
+/* ============================================================
+   GALLERY.CSS — Filmstrip Editorial + Lightbox
+   Galeria própria, sem libs externas (sem GSAP/ScrollTrigger).
+   Scroll horizontal nativo (scroll-snap) + arraste com mouse.
+   ============================================================ */
 
-.bento-section {
-  background: var(--color-background);
-  padding-top: clamp(3rem, 6vw, 5rem);
+.gallery-section {
+  background: var(--color-surface);
+  overflow: hidden;
 }
 
-.bento__header {
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+.gallery__header {
+  max-width: 640px;
+  margin-bottom: var(--space-xl);
 }
 
-.bento__header h2 {
+.gallery__header h2 {
   margin-top: var(--space-xs);
 }
 
-/* Ancora o pin do ScrollTrigger */
-.bento-wrap {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  /* FIX: garante que o pin do ScrollTrigger não quebre o layout */
-  will-change: transform;
+.gallery__desc {
+  color: var(--color-muted);
+  margin-top: var(--space-sm);
+  max-width: 46ch;
 }
 
-/* Grid base */
-.bento-gallery {
-  position: relative;
+/* ----------------------------------------------------------
+   VIEWPORT — trilha horizontal com scroll-snap nativo
+   ---------------------------------------------------------- */
+
+.gallery__viewport {
   width: 100%;
-  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+
+.gallery__viewport.is-dragging {
+  cursor: grabbing;
+  scroll-snap-type: none;
+}
+
+.gallery__viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery__track {
+  display: flex;
+  gap: var(--space-md);
+  padding-inline: var(--px-mobile);
+  width: max-content;
+}
+
+@media (min-width: 640px) {
+  .gallery__track    { padding-inline: var(--px-tablet); }
+  .gallery__viewport { scroll-padding-inline: var(--px-tablet); }
+}
+
+@media (min-width: 1024px) {
+  .gallery__track    { padding-inline: var(--px-desktop); }
+  .gallery__viewport { scroll-padding-inline: var(--px-desktop); }
+}
+
+/* ----------------------------------------------------------
+   CARD — moldura com frame, legenda editorial
+   ---------------------------------------------------------- */
+
+.gallery__card {
+  scroll-snap-align: start;
+  width: clamp(220px, 62vw, 320px);
   flex: none;
 }
 
-/* Células */
-.bento-gallery__item {
-  position: relative;
-  overflow: hidden;
-  /* FIX: evita saltos durante a animação Flip */
-  will-change: transform;
+@media (min-width: 768px) {
+  .gallery__card { width: clamp(260px, 32vw, 340px); }
 }
 
-.bento-gallery__item img {
-  object-fit: cover;
+.gallery__trigger {
+  display: block;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.gallery__frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-border);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.gallery__trigger:hover .gallery__frame,
+.gallery__trigger:focus-visible .gallery__frame {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.gallery__frame img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
   display: block;
-  /* FIX: evita subpixel rendering durante GSAP Flip */
-  transform: translateZ(0);
+  transition: transform 0.7s var(--ease-out);
 }
 
-/* Placeholder numerado */
-.bento-gallery__placeholder {
+.gallery__trigger:hover .gallery__frame img {
+  transform: scale(1.06);
+}
+
+.gallery__zoom-hint {
   position: absolute;
-  inset: 0;
+  right: var(--space-sm);
+  bottom: var(--space-sm);
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-dark-text);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1rem;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+.gallery__trigger:hover .gallery__zoom-hint,
+.gallery__trigger:focus-visible .gallery__zoom-hint {
+  opacity: 1;
+  transform: none;
+}
+
+/* Touch: sem hover — hint sempre visível, mais discreto */
+@media (hover: none) {
+  .gallery__zoom-hint {
+    opacity: 1;
+    transform: none;
+    background: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.gallery__caption {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-top: var(--space-sm);
+}
+
+.gallery__index {
   font-family: var(--font-mono);
-  font-size: clamp(1.2rem, 3vw, 2.5rem);
-  color: var(--color-muted);
-  letter-spacing: 0.05em;
-  pointer-events: none;
-  user-select: none;
+  font-size: var(--text-xs);
+  color: var(--color-primary);
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
 }
 
-.bento-gallery__item:nth-child(odd) {
-  background: color-mix(in srgb, var(--color-border) 60%, var(--color-background));
-}
-.bento-gallery__item:nth-child(even) {
-  background: color-mix(in srgb, var(--color-border) 30%, var(--color-background));
+.gallery__caption-text {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-style: italic;
+  color: var(--color-dark-text);
 }
 
-/* Desktop: 3 colunas — lateral | centro | lateral */
-.gallery--bento {
-  display: grid;
-  gap: 1vh;
-  grid-template-columns: 28vw 1fr 28vw;
-  grid-template-rows: repeat(2, 45vh);
+/* ----------------------------------------------------------
+   DICA DE ARRASTE — só em telas que não têm hover de mouse
+   ---------------------------------------------------------- */
+
+.gallery__hint {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   justify-content: center;
-  align-content: center;
+  margin-top: var(--space-lg);
 }
 
-/* col 1: dois cards empilhados */
-.gallery--bento .bento-gallery__item:nth-child(1) { grid-area: 1 / 1 / 2 / 2; }
-.gallery--bento .bento-gallery__item:nth-child(2) { grid-area: 2 / 1 / 3 / 2; }
-
-/* col 2: card central ocupa as 2 linhas */
-.gallery--bento .bento-gallery__item:nth-child(3) { grid-area: 1 / 2 / 3 / 3; }
-
-/* col 3: dois cards empilhados */
-.gallery--bento .bento-gallery__item:nth-child(4) { grid-area: 1 / 3 / 2 / 4; }
-.gallery--bento .bento-gallery__item:nth-child(5) { grid-area: 2 / 3 / 3 / 4; }
-
-/* Estado final desktop: expande para tela cheia */
-.gallery--bento.gallery--bento-final {
-  grid-template-columns: 50vw 1fr 50vw;
-  grid-template-rows: repeat(2, 50vh);
-  gap: 1vh;
+@media (min-width: 1024px) {
+  .gallery__hint { display: none; }
 }
 
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .gallery--bento {
-    grid-template-columns: 28vw 1fr 28vw;
-    grid-template-rows: repeat(2, 38vh);
-    gap: 0.6vh;
-  }
+/* ----------------------------------------------------------
+   REVEAL DE ENTRADA — própria, sem AOS
+   ---------------------------------------------------------- */
 
-  .gallery--bento.gallery--bento-final {
-    grid-template-columns: 50vw 1fr 50vw;
-    grid-template-rows: repeat(2, 50vh);
-    gap: 0.6vh;
-  }
+.gallery__header,
+.gallery__card {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
 }
 
-/* Mobile */
-@media (max-width: 767px) {
-  .bento-wrap {
-    height: 100vh;
-  }
-
-  .bento-gallery {
-    height: 100%;
-  }
-
-  .gallery--bento {
-    grid-template-columns: 28vw 1fr 28vw;
-    grid-template-rows: repeat(2, 35vh);
-    gap: 1vw;
-  }
-
-  .gallery--bento.gallery--bento-final {
-    grid-template-columns: 50vw 1fr 50vw;
-    grid-template-rows: repeat(2, 40vh);
-    gap: 1vw;
-  }
-
-  .bento-gallery__placeholder {
-    font-size: clamp(1rem, 5vw, 1.5rem);
-  }
+.gallery__header.is-visible,
+.gallery__card.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
-/* Reduced motion — sem animação, exibe estado final direto */
 @media (prefers-reduced-motion: reduce) {
-  .bento-wrap {
-    height: auto !important;
+  .gallery__header,
+  .gallery__card {
+    transition: none;
+    opacity: 1;
+    transform: none;
   }
-  .bento-gallery {
-    height: auto !important;
-  }
-  /* FIX: mostra o grid já expandido sem JS */
-  .gallery--bento {
-    grid-template-columns: 50vw 1fr 50vw !important;
-    grid-template-rows: repeat(2, 45vh) !important;
+}
+
+/* ============================================================
+   LIGHTBOX
+   ============================================================ */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-above);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 14, 8, 0.92);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-slow), visibility var(--transition-slow);
+  padding: var(--space-lg);
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+body.lightbox-open {
+  overflow: hidden;
+}
+
+.lightbox__figure {
+  max-width: min(90vw, 760px);
+  max-height: 86vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.96);
+  transition: transform var(--transition-slow);
+}
+
+.lightbox.is-open .lightbox__figure {
+  transform: scale(1);
+}
+
+.lightbox__img {
+  max-width: 100%;
+  max-height: 72vh;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  object-fit: contain;
+}
+
+.lightbox__caption {
+  margin-top: var(--space-md);
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  justify-content: center;
+  text-align: center;
+}
+
+.lightbox__index {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+}
+
+.lightbox__text {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: var(--text-lg);
+  color: var(--color-white);
+}
+
+.lightbox__close,
+.lightbox__nav {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.lightbox__close:hover,
+.lightbox__nav:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.lightbox__close {
+  top: var(--space-md);
+  right: var(--space-md);
+}
+
+.lightbox__nav--prev {
+  left: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox__nav--next {
+  right: var(--space-md);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox__nav--prev:hover { transform: translateY(-50%) scale(1.06); }
+.lightbox__nav--next:hover { transform: translateY(-50%) scale(1.06); }
+
+@media (max-width: 640px) {
+  .lightbox__close,
+  .lightbox__nav {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1rem;
   }
 }
