@@ -58,30 +58,47 @@
   <link rel="preconnect" href="https://unpkg.com">
 
   <!-- Preload LCP — imagem principal carrega antes de tudo -->
-  <link rel="preload" as="image" href="images/hero/hero.png" fetchpriority="high">
+  <link rel="preload" as="image" href="images/hero/hero.webp" fetchpriority="high">
 
   <!-- GSAP — defer para não bloquear render -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js" defer></script>
 
-  <!-- Fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,500;1,9..144,380;1,9..144,440&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <!-- Fontes — display:swap já evita FOIT, então pode carregar de forma não-bloqueante -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,500;1,9..144,380;1,9..144,440&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="https://unpkg.com/aos@2.3.1/dist/aos.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,500;1,9..144,380;1,9..144,440&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  </noscript>
 
-  <!-- CSS -->
+  <!-- CSS crítico (acima da dobra) — bloqueante, intencional -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/hero.css">
-  <link rel="stylesheet" href="css/about.css">
-  <link rel="stylesheet" href="css/diff.css">
-  <link rel="stylesheet" href="css/services.css">
-  <link rel="stylesheet" href="css/parallax.css">
-  <link rel="stylesheet" href="css/gallery.css">
-  <link rel="stylesheet" href="css/faq.css">
-  <link rel="stylesheet" href="css/contact.css">
-  <link rel="stylesheet" href="css/footer.css">
+
+  <!-- CSS não-crítico (abaixo da dobra) — carrega sem bloquear o first paint -->
+  <link rel="preload" as="style" href="css/about.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/diff.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/services.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/parallax.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/gallery.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/faq.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/contact.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/footer.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/diff.css">
+    <link rel="stylesheet" href="css/services.css">
+    <link rel="stylesheet" href="css/parallax.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/footer.css">
+  </noscript>
 
   <!-- Google Tag Manager -->
   <script>
@@ -113,7 +130,7 @@
     "jobTitle": "Psicóloga Infantil",
     "description": "Psicóloga Infantil (CRP 12/23942), Neuropsicopedagoga e pós-graduanda em Neuropsicologia. Atendimento especializado em Joinville-SC.",
     "url": "https://www.natanepsicologa.com.br",
-    "image": "https://www.natanepsicologa.com.br/images/hero/hero.png",
+    "image": "https://www.natanepsicologa.com.br/images/hero/hero.webp",
     "telephone": "+5547996240418",
     "address": {
       "@type": "PostalAddress",
@@ -154,7 +171,7 @@
     "@type": "MedicalBusiness",
     "@id": "https://www.natanepsicologa.com.br/#business",
     "name": "Natane Gonçalves — Psicóloga Infantil",
-    "image": "https://www.natanepsicologa.com.br/images/hero/hero.png",
+    "image": "https://www.natanepsicologa.com.br/images/hero/hero.webp",
     "url": "https://www.natanepsicologa.com.br",
     "telephone": "+5547996240418",
     "medicalSpecialty": "Psicologia Infantil",
@@ -402,10 +419,10 @@
         <figure class="hero__image" data-aos="fade-up" data-aos-delay="120">
           <div class="img-wrapper img-wrapper--hero">
             <img
-              src="images/hero/hero.png"
+              src="images/hero/hero.webp"
               alt="Natane Gonçalves, psicóloga infantil em Joinville-SC, especialista em psicoterapia infantil e neuropsicopedagogia"
-              width="1964"
-              height="1309"
+              width="1200"
+              height="800"
               loading="eager"
               fetchpriority="high"
               decoding="async">
@@ -437,7 +454,7 @@
       <div class="about__content">
         <div class="about__slider" id="aboutSlider" role="list" aria-label="Áreas de atuação da psicóloga Natane Gonçalves">
           <div class="about__slide about__slide--active" role="listitem" data-index="0">
-            <div class="about__slide-bg" style="background-image: url('images/about/about1.png')"></div>
+            <div class="about__slide-bg" style="background-image: url('images/about/about1.webp')"></div>
               <div class="about__slide-label">
                 <div class="about__slide-icon"><i class="bi bi-heart-pulse" aria-hidden="true"></i></div>
                 <div class="about__slide-info">
@@ -448,7 +465,7 @@
             </div>
 
             <div class="about__slide" role="listitem" data-index="1">
-              <div class="about__slide-bg" style="background-image: url('images/about/about2.png')"></div>
+              <div class="about__slide-bg" style="background-image: url('images/about/about2.webp')"></div>
               <div class="about__slide-label">
                 <div class="about__slide-icon"><i class="bi bi-journal-richtext" aria-hidden="true"></i></div>
                 <div class="about__slide-info">
@@ -459,7 +476,7 @@
             </div>
 
             <div class="about__slide" role="listitem" data-index="2">
-              <div class="about__slide-bg" style="background-image: url('images/about/about3.png')"></div>
+              <div class="about__slide-bg" style="background-image: url('images/about/about3.webp')"></div>
               <div class="about__slide-label">
                 <div class="about__slide-icon"><i class="bi bi-people" aria-hidden="true"></i></div>
                 <div class="about__slide-info">
@@ -470,7 +487,7 @@
             </div>
 
             <div class="about__slide" role="listitem" data-index="3">
-              <div class="about__slide-bg" style="background-image: url('images/about/about4.png')"></div>
+              <div class="about__slide-bg" style="background-image: url('images/about/about4.webp')"></div>
               <div class="about__slide-label">
                 <div class="about__slide-icon"><i class="bi bi-emoji-smile" aria-hidden="true"></i></div>
                 <div class="about__slide-info">
@@ -642,7 +659,7 @@
           <div class="svc-card">
             <div class="svc-card__top">
               <span class="svc-card__icon" aria-hidden="true"><i class="bi bi-heart-pulse"></i></span>
-              <img class="svc-card__cover" src="images/servicos/mudanca_comportamento.png"
+              <img class="svc-card__cover" src="images/servicos/mudanca_comportamento.webp"
                 alt="Psicoterapia infantil em Joinville — sessão com abordagem lúdica e TCC"
                 width="64" height="64" loading="lazy" decoding="async" />
             </div>
@@ -665,7 +682,7 @@
           <div class="svc-card">
             <div class="svc-card__top">
               <span class="svc-card__icon" aria-hidden="true"><i class="bi bi-brain"></i></span>
-              <img class="svc-card__cover" src="images/servicos/dificuldades_escolares.png"
+              <img class="svc-card__cover" src="images/servicos/dificuldades_escolares.webp"
                 alt="Avaliação neuropsicopedagógica infantil em Joinville — dificuldades de aprendizagem e TDAH"
                 width="64" height="64" loading="lazy" decoding="async" />
             </div>
@@ -688,7 +705,7 @@
           <div class="svc-card">
             <div class="svc-card__top">
               <span class="svc-card__icon" aria-hidden="true"><i class="bi bi-people"></i></span>
-              <img class="svc-card__cover" src="images/servicos/orientacao.png"
+              <img class="svc-card__cover" src="images/servicos/orientacao.webp"
                 alt="Orientação familiar com psicóloga infantil em Joinville — suporte a pais e responsáveis"
                 width="64" height="64" loading="lazy" decoding="async" />
             </div>
@@ -711,7 +728,7 @@
           <div class="svc-card">
             <div class="svc-card__top">
               <span class="svc-card__icon" aria-hidden="true"><i class="bi bi-emoji-smile"></i></span>
-              <img class="svc-card__cover" src="images/servicos/baixa_autoestima.png"
+              <img class="svc-card__cover" src="images/servicos/baixa_autoestima.webp"
                 alt="Desenvolvimento da inteligência emocional infantil — regulação e autoestima"
                 width="64" height="64" loading="lazy" decoding="async" />
             </div>
@@ -734,7 +751,7 @@
           <div class="svc-card">
             <div class="svc-card__top">
               <span class="svc-card__icon" aria-hidden="true"><i class="bi bi-shield-heart"></i></span>
-              <img class="svc-card__cover" src="images/servicos/ansiedade.png"
+              <img class="svc-card__cover" src="images/servicos/ansiedade.webp"
                 alt="Tratamento de ansiedade infantil, medos e fobias em Joinville-SC"
                 width="64" height="64" loading="lazy" decoding="async" />
             </div>
@@ -757,7 +774,7 @@
           <div class="svc-card">
             <div class="svc-card__top">
               <span class="svc-card__icon" aria-hidden="true"><i class="bi bi-flower1"></i></span>
-              <img class="svc-card__cover" src="images/servicos/luto.png"
+              <img class="svc-card__cover" src="images/servicos/luto.webp"
                 alt="Apoio psicológico infantil em situações de luto, separação e crise familiar"
                 width="64" height="64" loading="lazy" decoding="async" />
             </div>
@@ -814,28 +831,28 @@
 
             <!-- SET 1 -->
             <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about1.png"/>
+              <img alt="" loading="lazy" src="images/about/about1.webp"/>
               <div class="parallax-img-caption">
                 <strong>Psicoterapia Infantil</strong>
                 <span>TCC &amp; Desenvolvimento</span>
               </div>
             </div>
             <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about2.png"/>
+              <img alt="" loading="lazy" src="images/about/about2.webp"/>
               <div class="parallax-img-caption">
                 <strong>Neuropsicopedagogia</strong>
                 <span>Aprendizagem &amp; Cognição</span>
               </div>
             </div>
             <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about3.png"/>
+              <img alt="" loading="lazy" src="images/about/about3.webp"/>
               <div class="parallax-img-caption">
                 <strong>Orientação Familiar</strong>
                 <span>Suporte &amp; Parceria</span>
               </div>
             </div>
             <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about4.png"/>
+              <img alt="" loading="lazy" src="images/about/about4.webp"/>
               <div class="parallax-img-caption">
                 <strong>Inteligência Emocional</strong>
                 <span>Regulação &amp; Autonomia</span>
@@ -844,28 +861,28 @@
 
             <!-- SET 2 — duplicado para loop infinito -->
             <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about1.png"/>
+              <img alt="" loading="lazy" src="images/about/about1.webp"/>
               <div class="parallax-img-caption">
                 <strong>Psicoterapia Infantil</strong>
                 <span>TCC &amp; Desenvolvimento</span>
               </div>
             </div>
             <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about2.png"/>
+              <img alt="" loading="lazy" src="images/about/about2.webp"/>
               <div class="parallax-img-caption">
                 <strong>Neuropsicopedagogia</strong>
                 <span>Aprendizagem &amp; Cognição</span>
               </div>
             </div>
             <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about3.png"/>
+              <img alt="" loading="lazy" src="images/about/about3.webp"/>
               <div class="parallax-img-caption">
                 <strong>Orientação Familiar</strong>
                 <span>Suporte &amp; Parceria</span>
               </div>
             </div>
             <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about4.png"/>
+              <img alt="" loading="lazy" src="images/about/about4.webp"/>
               <div class="parallax-img-caption">
                 <strong>Inteligência Emocional</strong>
                 <span>Regulação &amp; Autonomia</span>
@@ -894,31 +911,31 @@
       <div class="bento-gallery gallery--bento" id="bentoDynamic">
 
         <div class="bento-gallery__item">
-          <img src="images/galeria/galeria1.png"
+          <img src="images/galeria/galeria1.webp"
             alt="Consultório de psicologia infantil em Joinville — espaço acolhedor e seguro para crianças"
             width="560" height="450" loading="lazy" decoding="async">
         </div>
 
         <div class="bento-gallery__item">
-          <img src="images/galeria/galeria2.png"
+          <img src="images/galeria/galeria2.webp"
             alt="Natane Gonçalves, psicóloga infantil, durante atendimento com criança em Joinville-SC"
             width="560" height="450" loading="lazy" decoding="async">
         </div>
 
         <div class="bento-gallery__item">
-          <img src="images/galeria/galeria123.png"
+          <img src="images/galeria/galeria123.webp"
             alt="Materiais lúdicos e terapêuticos utilizados na psicoterapia infantil — jogos e brinquedos"
             width="560" height="900" loading="lazy" decoding="async">
         </div>
 
         <div class="bento-gallery__item">
-          <img src="images/galeria/galeria3.png"
+          <img src="images/galeria/galeria3.webp"
             alt="Espaço terapêutico da psicóloga Natane Gonçalves em Joinville — ambiente infantil seguro"
             width="560" height="450" loading="lazy" decoding="async">
         </div>
 
         <div class="bento-gallery__item">
-          <img src="images/galeria/galeria4.png"
+          <img src="images/galeria/galeria4.webp"
             alt="Sessão de orientação familiar com psicóloga infantil — pais e responsáveis no processo terapêutico"
             width="560" height="450" loading="lazy" decoding="async">
         </div>
@@ -1008,11 +1025,11 @@
 
         <div class="contact__image-wrap">
           <img
-            src="images/hero/hero.png"
+            src="images/hero/hero.webp"
             alt="Natane Gonçalves — psicóloga infantil disponível para atendimento em Joinville-SC"
             class="contact__image"
-            width="1964"
-            height="1309"
+            width="1200"
+            height="800"
             loading="lazy"
             decoding="async">
         </div>
