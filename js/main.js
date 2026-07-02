@@ -295,7 +295,7 @@ const qsa = (sel, parent = document) => parent.querySelectorAll(sel);
   const el = qs('#typed-word');
   if (!el) return;
 
-  const words          = ['compreendida', 'acolhida'];
+  const words          = ['acolhida'];
   const typeSpeed      = 80;
   const deleteSpeed    = 50;
   const pauseAfterType = 1800;
@@ -554,7 +554,7 @@ const qsa = (sel, parent = document) => parent.querySelectorAll(sel);
       }
 
       setWaiting(false);
-      input.focus({ preventScroll: true });
+      input.focus();
     }, 550 + Math.random() * 350);
   }
 

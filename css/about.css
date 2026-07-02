@@ -280,10 +280,10 @@
   .about__text-col {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
 
-  .about__mono-tag {
+  .about__text-col .section-eyebrow {
     width: 100%;
     max-width: 52ch;
   }
