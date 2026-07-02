@@ -554,7 +554,7 @@ const qsa = (sel, parent = document) => parent.querySelectorAll(sel);
       }
 
       setWaiting(false);
-      input.focus();
+      input.focus({ preventScroll: true });
     }, 550 + Math.random() * 350);
   }
 
