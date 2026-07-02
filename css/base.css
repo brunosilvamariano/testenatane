@@ -1,50 +1,315 @@
 /* ============================================================
    BASE.CSS — Design Tokens, Reset, Tipografia, Utilitários
-   v3.0 — Refatorado: tokens limpos, sem redundâncias
+   v8.0 — Paleta Sage Obsidiana
+          Mármore · Linho · Névoa · Sage mineral #6B9E72
    ============================================================ */
-
-/* ==================================================
-   DESIGN TOKENS GLOBAIS
-   ================================================== */
 
 :root {
 
-  /* ── CORES PRINCIPAIS ── */
-  --color-primary:      #B5763A;   /* Terracota Dourado */
-  --color-secondary:    #C8687B;   /* Rosa Antigo */
-  --color-accent:       #D4955A;   /* Âmbar Quente */
-  --color-tender:       #E8C9A0;   /* Creme Perolado */
+  /* ══════════════════════════════════════════════
+     GLOBAIS
+     ══════════════════════════════════════════════ */
 
-  /* ── BACKGROUNDS ── */
-  --color-background:   #ffffff;
-  --color-surface:      #F5EDE0;
-  --color-gray-bg:      #FDF0E6;
-  --color-dark-bg:      #4A3728;
+  --body-bg:            #FAFAF8;   /* Mármore — fundo geral */
+  --body-color:         #2C2C28;   /* Carvão — texto principal */
+  --mono-tag-color:     #7A7A73;   /* Ardósia — .mono-tag */
+  --eyebrow-line-color: #C8C7C0;   /* Cimento — traço decorativo */
 
-  /* ── TEXTOS ── */
-  --color-dark-text:    #4A3728;
-  --color-muted:        #796141;
-  --color-white:        #FFFFFF;
-  --color-heading:      #000000;   /* headings principais */
+  /* ══════════════════════════════════════════════
+     HEADER
+     ══════════════════════════════════════════════ */
 
-  /* ── BORDAS ── */
-  --color-border:       #E8D9C8;
+  --header-bg-scrolled:          rgba(250, 250, 248, 0.97);
+  --header-border-scrolled:      #E9E8E4;
+  --header-logo-color:           #4A7D52;
+  --header-trigger-color:        #4A7D52;
+  --header-trigger-border:       #E9E8E4;
+  --header-trigger-hover-bg:     #F3F2EF;
+  --header-trigger-hover-border: #6B9E72;
 
-  /* ── GRADIENTES ── */
-  --gradient-aurora: linear-gradient(
-    160deg,
-    #c8687b20 0%,
-    #ffffff   45%,
-    #fff      50%,
-    #ffffff  100%
-  );
+  /* Drawer */
+  --drawer-bg:                #18181A;
+  --drawer-link-color:        rgba(255, 255, 255, 0.25);
+  --drawer-link-active:       rgba(255, 255, 255, 0.90);
+  --drawer-link-hover:        #ffffff;
+  --drawer-link-border:       rgba(255, 255, 255, 0.06);
+  --drawer-num-color:         rgba(255, 255, 255, 0.20);
+  --drawer-num-hover:         rgba(255, 255, 255, 0.40);
+  --drawer-footer-border:     rgba(255, 255, 255, 0.07);
+  --drawer-copy-color:        rgba(255, 255, 255, 0.20);
+  --drawer-social-color:      rgba(255, 255, 255, 0.28);
+  --drawer-social-hover:      #ffffff;
+  --drawer-location-label:    rgba(255, 255, 255, 0.22);
+  --drawer-address-color:     rgba(255, 255, 255, 0.35);
+  --drawer-map-overlay-color: rgba(255, 255, 255, 0.50);
+  --drawer-map-gradient:      linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+  --drawer-map-border:        rgba(255, 255, 255, 0.07);
+  --drawer-link-touch:        rgba(255, 255, 255, 0.75);
+  --scrim-bg:                 rgba(0, 0, 0, 0.48);
 
-  /* ── TIPOGRAFIA ── */
+  /* ══════════════════════════════════════════════
+     HERO
+     ══════════════════════════════════════════════ */
+
+  --hero-bg: #F3F2EF;
+  --hero-title-color:      #18181A;
+  --hero-span-color:       #7A7A73;
+  --hero-body-color:       #7A7A73;
+  --hero-cursor-color:     #C8C7C0;
+  --hero-eyebrow-line:     #C8C7C0;
+  --hero-stat-num-color:   #18181A;
+  --hero-stat-label-color: #7A7A73;
+  --hero-stat-border:      rgba(0, 0, 0, 0.06);
+  --hero-cta-border:       #18181A;
+  --hero-cta-color:        #18181A;
+  --hero-cta-hover-bg:     #18181A;
+  --hero-cta-hover-color:  #FAFAF8;
+  --hero-cta-ghost-bg:     #18181A;
+  --hero-cta-ghost-color:  #FAFAF8;
+
+  
+  /* ══════════════════════════════════════════════
+     PAIN — lista editorial de sinais
+     ══════════════════════════════════════════════ */
+
+  --pain-bg:              #FAFAF8;
+  --pain-heading-color:   #18181A;
+  --pain-desc-color:      #7A7A73;
+
+  --pain-row-border:      #E9E8E4;
+  --pain-row-hover-bg:    #F3F2EF;
+
+  --pain-index-color:     #E3DCD0;          /* Numeral grande translúcido, areia */
+  --pain-index-hover:     #C9A876;          /* Numeral aceso no hover — âmbar */
+
+  --pain-title-color:     #18181A;
+  --pain-text-color:      #7A7A73;
+
+  --pain-icon-color:      #B5763A;          /* Âmbar — acento de alerta */
+
+  /* Linha de destaque final — a mais grave, em bloco sólido */
+  --pain-flag-bg:         #2C2418;
+  --pain-flag-index:      rgba(232, 201, 160, 0.18);
+  --pain-flag-index-hover: rgba(232, 201, 160, 0.32);
+  --pain-flag-title:      #F5EEE3;
+  --pain-flag-text:       rgba(245, 238, 227, 0.62);
+  --pain-flag-icon:       #D9B68A;
+
+  /* Botão WhatsApp — mesmo padrão do contact/footer */
+  --pain-wa-bg:                rgba(37, 211, 102, 0.09);
+  --pain-wa-border:            rgba(37, 211, 102, 0.25);
+  --pain-wa-color:             #16a34a;
+  --pain-wa-hover-bg:          rgba(37, 211, 102, 0.16);
+  --pain-wa-hover-border:      rgba(37, 211, 102, 0.45);
+  --pain-wa-hover-shadow:      0 8px 24px rgba(37, 211, 102, 0.18);
+
+  /* ══════════════════════════════════════════════
+     ABOUT
+     ══════════════════════════════════════════════ */
+
+  --about-bg:                  #FAFAF8;
+  --about-heading-color:       #18181A;
+  --about-text-color:          #7A7A73;
+  --about-slide-gradient:      linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+  --about-slide-border:        rgba(0, 0, 0, 0.06);
+  --about-slide-active-border: rgba(0, 0, 0, 0.06);
+  --about-icon-bg:             rgba(24, 24, 26, 0.75);
+  --about-icon-border:         rgba(255, 255, 255, 0.15);
+  --about-icon-color:          #ffffff;
+  --about-title-color:         #ffffff;
+  --about-sub-color:           rgba(255, 255, 255, 0.60);
+  --about-dock-bg:             #F3F2EF;
+  --about-dock-border:         rgba(0, 0, 0, 0.06);
+  --about-dock-divider:        rgba(0, 0, 0, 0.06);
+  --about-dock-separator:      rgba(0, 0, 0, 0.06);
+  --about-dock-icon-color:     #6B9E72;
+  --about-dock-hover-bg:       #FAFAF8;
+  --about-tooltip-bg:          #2A5230;
+  --about-tooltip-color:       #EBF2EC;
+
+  /* ══════════════════════════════════════════════
+     MARQUEE
+     ══════════════════════════════════════════════ */
+
+  --marquee-bg:         #18181A;
+  --marquee-text-color: #C8C7C0;
+  --marquee-sep-color:  rgba(255, 255, 255, 0.15);
+
+  /* ══════════════════════════════════════════════
+     PARALLAX (CTA Split)
+     ══════════════════════════════════════════════ */
+
+  --parallax-bg:                 #2C2C28;
+  --parallax-text-color:         #FAFAF8;
+  --parallax-tag-color:          rgba(255, 255, 255, 0.30);
+  --parallax-heading-color:      #FAFAF8;
+  --parallax-em-color:           #C4DCC6;
+  --parallax-body-color:         rgba(255, 255, 255, 0.42);
+  --parallax-input-bg:           rgba(255, 255, 255, 0.05);
+  --parallax-input-border:       rgba(255, 255, 255, 0.12);
+  --parallax-input-hover-bg:     rgba(255, 255, 255, 0.08);
+  --parallax-input-hover-border: rgba(255, 255, 255, 0.25);
+  --parallax-input-icon:         rgba(255, 255, 255, 0.28);
+  --parallax-input-text:         rgba(255, 255, 255, 0.28);
+  --parallax-sub-color:          rgba(255, 255, 255, 0.16);
+  --parallax-img-bg:             #2C2C28;
+  --parallax-caption-gradient:   linear-gradient(to top, rgba(24,24,26,0.85), transparent);
+  --parallax-caption-title:      rgba(255, 255, 255, 0.90);
+  --parallax-caption-sub:        rgba(255, 255, 255, 0.48);
+  --parallax-cta-bg:             #FAFAF8;
+  --parallax-cta-color:          #2C2C28;
+  --parallax-cta-hover-bg:       #EBF2EC;
+  --parallax-mask:               linear-gradient(90deg, transparent 0%, #000 8%, #000 92%, transparent 100%);
+
+  /* ══════════════════════════════════════════════
+     SERVICES
+     ══════════════════════════════════════════════ */
+
+  --services-bg:            #FAFAF8;
+  --services-heading-color: #18181A;
+  --svc-card-bg:            #FFFFFF;
+  --svc-card-shadow:        0 2px 16px rgba(0, 0, 0, 0.05);
+  --svc-card-border:        #E9E8E4;
+  --svc-icon-bg:            #F3F2EF;
+  --svc-icon-color:         #7A7A73;
+  --svc-title-color:        #18181A;
+  --svc-meta-color:         #7A7A73;
+  --svc-img-shadow:         0 4px 12px rgba(0, 0, 0, 0.10);
+  --svc-control-bg:         #FFFFFF;
+  --svc-control-shadow:     0 2px 16px rgba(0, 0, 0, 0.05);
+  --svc-control-border:     #E9E8E4;
+  --svc-sig-name-color:     #C8C7C0;
+  --svc-cta-bg:             #18181A;
+  --svc-cta-color:          #FAFAF8;
+  --svc-cta-hover-bg:       #2C2C28;
+  --svc-cta-hover-shadow:   0 6px 20px rgba(0, 0, 0, 0.14);
+
+  /* ══════════════════════════════════════════════
+     DIFF (Diferenciais)
+     ══════════════════════════════════════════════ */
+
+  --diff-bg:                   #F3F2EF;
+  --diff-heading-color:        #4A7D52;
+  --diff-desc-color:           #7A7A73;
+  --diff-grid-border:          #E9E8E4;
+  --diff-card-bg:              #F3F2EF;
+  --diff-card-hover-bg:        #FAFAF8;
+  --diff-icon-color:           #6B9E72;
+  --diff-title-color:          #4A7D52;
+  --diff-text-color:           #7A7A73;
+  --diff-featured-bg:          #2C2C28;
+  --diff-featured-hover-bg:    #363630;
+  --diff-featured-icon-color:  #C4DCC6;
+  --diff-featured-title-color: #EBF2EC;
+  --diff-featured-text-color:  rgba(196, 220, 198, 0.60);
+
+  /* ══════════════════════════════════════════════
+     GALLERY (Bento)
+     ══════════════════════════════════════════════ */
+
+  --gallery-bg:                #FAFAF8;
+  --gallery-cell-odd:          color-mix(in srgb, #E9E8E4 55%, #FAFAF8);
+  --gallery-cell-even:         color-mix(in srgb, #E9E8E4 25%, #FAFAF8);
+  --gallery-placeholder-color: #C8C7C0;
+
+  /* ══════════════════════════════════════════════
+     PORTFOLIO
+     ══════════════════════════════════════════════ */
+
+  --portfolio-bg:            #F3F2EF;
+  --portfolio-heading-color: #4A7D52;
+  --portfolio-overlay-hover: rgba(24, 24, 26, 0.52);
+  --portfolio-overlay-touch: rgba(24, 24, 26, 0.40);
+  --portfolio-info-color:    #2C2C28;
+  --portfolio-info-heading:  #2C2C28;
+  --portfolio-info-meta:     rgba(255, 255, 255, 0.52);
+
+  /* ══════════════════════════════════════════════
+     FAQ
+     ══════════════════════════════════════════════ */
+
+  --faq-bg:                 #FAFAF8;
+  --faq-heading-color:      #4A7D52;
+  --faq-border-color:       #E9E8E4;
+  --faq-trigger-color:      #4A7D52;
+  --faq-icon-border:        #E9E8E4;
+  --faq-icon-color:         #C8C7C0;
+  --faq-icon-active-bg:     #6B9E72;
+  --faq-icon-active-border: #6B9E72;
+  --faq-icon-active-color:  #FFFFFF;
+  --faq-answer-color:       #7A7A73;
+  --faq-code-bg:            #EBF2EC;
+  --faq-code-color:         #2A5230;
+  --faq-touch-hover-bg:     #F3F2EF;
+
+  /* ══════════════════════════════════════════════
+     CONTACT
+     ══════════════════════════════════════════════ */
+
+  --contact-bg:              #FAFAF8;
+  --contact-box-bg:          #2C2C28;
+  --contact-box-border:      rgba(255, 255, 255, 0.07);
+  --contact-box-shadow:      0 4px 32px rgba(0, 0, 0, 0.14);
+  --contact-title:           #FAFAF8;
+  --contact-text:            rgba(255, 255, 255, 0.45);
+  --contact-eyebrow:         rgba(255, 255, 255, 0.28);
+  --contact-wa-bg:           rgba(37, 211, 102, 0.09);
+  --contact-wa-border:       rgba(37, 211, 102, 0.25);
+  --contact-wa-text:         #4ade80;
+  --contact-wa-hover-bg:     rgba(37, 211, 102, 0.16);
+  --contact-wa-hover-border: rgba(37, 211, 102, 0.45);
+
+  /* ══════════════════════════════════════════════
+     FOOTER
+     ══════════════════════════════════════════════ */
+
+  --footer-bg:                  #FAFAF8;
+  --footer-eyebrow-color:       #C8C7C0;
+  --footer-headline-color:      #4A7D52;
+  --footer-muted-color:         #7A7A73;
+  --footer-wa-bg:               rgba(37, 211, 102, 0.07);
+  --footer-wa-border:           rgba(37, 211, 102, 0.22);
+  --footer-wa-color:            #16a34a;
+  --footer-wa-hover-bg:         rgba(37, 211, 102, 0.12);
+  --footer-wa-hover-border:     rgba(37, 211, 102, 0.40);
+  --footer-nav-color:           #7A7A73;
+  --footer-nav-hover:           #6B9E72;
+  --footer-wordmark-color:      #4A7D52;
+  --footer-bottom-border:       #E9E8E4;
+  --footer-copy-color:          #C8C7C0;
+  --footer-crafted-color:       #C8C7C0;
+  --footer-crafted-link:        #7A7A73;
+  --footer-crafted-link-border: #E9E8E4;
+  --footer-crafted-hover:       #6B9E72;
+  --footer-heart-color:         #6B9E72;
+  --footer-scroll-border:       #E9E8E4;
+  --footer-scroll-color:        #C8C7C0;
+  --footer-scroll-hover-border: #6B9E72;
+  --footer-scroll-hover-color:  #6B9E72;
+
+  /* ══════════════════════════════════════════════
+     WAVE DIVIDERS
+     ══════════════════════════════════════════════ */
+
+  --wave-fill: #C8C7C0;
+  --wave-top:  #FAFAF8;
+
+  /* ══════════════════════════════════════════════
+     ACESSIBILIDADE
+     ══════════════════════════════════════════════ */
+
+  --focus-ring:      #6B9E72;
+  --skip-link-bg:    #2A5230;
+  --skip-link-color: #EBF2EC;
+
+  /* ══════════════════════════════════════════════
+     TIPOGRAFIA
+     ══════════════════════════════════════════════ */
+
   --font-heading: 'Fraunces', serif;
   --font-body:    'Inter', sans-serif;
   --font-mono:    'IBM Plex Mono', monospace;
 
-  /* ── TYPE SCALE FLUIDA ── */
   --text-xs:   clamp(0.625rem, 0.7vw,  0.75rem);
   --text-sm:   clamp(0.8rem,   1vw,    0.9rem);
   --text-base: clamp(1rem,     1.4vw,  1.125rem);
@@ -53,7 +318,10 @@
   --text-2xl:  clamp(2rem,     4vw,    3.2rem);
   --text-3xl:  clamp(2.8rem,   5.5vw,  5rem);
 
-  /* ── ESPAÇAMENTO FLUIDO ── */
+  /* ══════════════════════════════════════════════
+     ESPAÇAMENTO FLUIDO
+     ══════════════════════════════════════════════ */
+
   --space-2xs: clamp(0.25rem, 0.5vw,  0.5rem);
   --space-xs:  clamp(0.5rem,  1vw,    0.75rem);
   --space-sm:  clamp(0.75rem, 1.5vw,  1rem);
@@ -62,37 +330,63 @@
   --space-xl:  clamp(2.5rem,  5vw,    4rem);
   --space-2xl: clamp(4rem,    8vw,    8rem);
 
-  /* ── CONTAINER ── */
+  /* ══════════════════════════════════════════════
+     CONTAINER
+     ══════════════════════════════════════════════ */
+
   --px-mobile:  1.25rem;
   --px-tablet:  2.5rem;
   --px-desktop: 4rem;
   --max-width:  1440px;
 
-  /* ── BORDER RADIUS ── */
+  /* ══════════════════════════════════════════════
+     BORDER RADIUS
+     ══════════════════════════════════════════════ */
+
   --radius-sm:   4px;
   --radius-md:   8px;
   --radius-lg:   16px;
   --radius-xl:   24px;
   --radius-full: 9999px;
 
-  /* ── SOMBRAS ── */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.07);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.09);
-  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.13);
+  /* ══════════════════════════════════════════════
+     SOMBRAS
+     ══════════════════════════════════════════════ */
 
-  /* ── TRANSIÇÕES ── */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.10);
+
+  /* ══════════════════════════════════════════════
+     TRANSIÇÕES
+     ══════════════════════════════════════════════ */
+
   --ease-out:        cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out:     cubic-bezier(0.65, 0, 0.35, 1);
   --transition-fast: 0.18s ease;
   --transition-base: 0.32s ease;
   --transition-slow: 0.55s var(--ease-out);
 
-  /* ── Z-INDEX ── */
+  /* ══════════════════════════════════════════════
+     Z-INDEX
+     ══════════════════════════════════════════════ */
+
   --z-base:     1;
   --z-dropdown: 100;
   --z-overlay:  900;
   --z-header:   1000;
   --z-above:    1100;
+
+  /* ══════════════════════════════════════════════
+     HEADER — dimensões
+     ══════════════════════════════════════════════ */
+
+  --header-height: clamp(60px, 7vw, 76px);
+  --drawer-width:  min(420px, 88vw);
+}
+
+@media (min-width: 768px) {
+  :root { --drawer-width: min(480px, 55vw); }
 }
 
 
@@ -117,8 +411,8 @@ html {
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-primary);
+  background-color: var(--body-bg);
+  color: var(--body-color);
   font-family: var(--font-body);
   font-size: var(--text-base);
   line-height: 1.65;
@@ -202,7 +496,7 @@ p {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   display: inline-block;
-  color: var(--color-muted);
+  color: var(--mono-tag-color);
 }
 
 
@@ -222,7 +516,7 @@ a:hover {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--focus-ring);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -301,8 +595,8 @@ button:focus-visible {
   left: var(--px-mobile);
   z-index: calc(var(--z-above) + 10);
   padding: 0.75rem 1.25rem;
-  background: var(--color-primary);
-  color: var(--color-background);
+  background: var(--skip-link-bg);
+  color: var(--skip-link-color);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.1em;
@@ -355,15 +649,14 @@ button:focus-visible {
   height: clamp(60px, 8vw, 120px);
 }
 
-/* Custom properties por seção */
-.hero-section     { position: relative; --wave-fill: #796141; }
-.about-section    { position: relative; --wave-top: #ffffff; }
+.hero-section     { position: relative; }
+.about-section    { position: relative; }
 .services-section { position: relative; }
 .contact-section  { position: relative; }
 
 
 /* ==================================================
-   EYEBROW — Rótulo decorativo de seção (reutilizável)
+   EYEBROW
    ================================================== */
 
 .section-eyebrow {
@@ -378,6 +671,6 @@ button:focus-visible {
   display: block;
   width: 2rem;
   height: 1px;
-  background: var(--color-muted);
+  background: var(--eyebrow-line-color);
   flex-shrink: 0;
 }

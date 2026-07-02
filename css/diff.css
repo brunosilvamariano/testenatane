@@ -3,12 +3,8 @@
    v3.0 — Animated Gradient Cards (inspirado em Bento Grid)
    ============================================================ */
 
-/* ==================================================
-   SEÇÃO
-   ================================================== */
-
 .diff-section {
-  background: var(--color-gray-bg);
+  background: var(--diff-bg);
   position: relative;
   overflow: hidden;
 }
@@ -20,13 +16,13 @@
 
 .diff__header h2 {
   margin-top: var(--space-sm);
-  color: var(--color-primary);
+  color: var(--diff-heading-color);
   font-weight: 300;
 }
 
 .diff__header .diff__desc {
   margin-top: var(--space-sm);
-  color: var(--color-muted);
+  color: var(--diff-desc-color);
   font-size: var(--text-sm);
   line-height: 1.7;
   max-width: 52ch;
@@ -41,25 +37,19 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1px;
-  background: var(--color-border);
-  border: 1px solid var(--color-border);
+  background: var(--diff-grid-border);
+  border: 1px solid var(--diff-grid-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
 }
 
 @media (min-width: 640px) {
-  .diff__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .diff__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 1024px) {
-  .diff__grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .diff__card--wide {
-    grid-column: span 2;
-  }
+  .diff__grid { grid-template-columns: repeat(3, 1fr); }
+  .diff__card--wide { grid-column: span 2; }
 }
 
 
@@ -70,7 +60,7 @@
 .diff__card {
   position: relative;
   overflow: hidden;
-  background: var(--color-gray-bg);
+  background: var(--diff-card-bg);
   padding: clamp(1.75rem, 3.5vw, 2.5rem);
   transition: background var(--transition-base);
   list-style: none;
@@ -81,10 +71,9 @@
 }
 
 .diff__card:hover {
-  background: var(--color-surface);
+  background: var(--diff-card-hover-bg);
 }
 
-/* Gradiente animado de fundo */
 .diff__card-gradient {
   position: absolute;
   inset: 0;
@@ -147,7 +136,7 @@
   font-size: 1.5rem;
   margin-bottom: var(--space-sm);
   display: block;
-  color: var(--color-primary);
+  color: var(--diff-icon-color);
   transition: transform var(--transition-base);
 }
 
@@ -157,33 +146,36 @@
 
 .diff__card h3 {
   margin-bottom: 0.5rem;
-  color: var(--color-primary);
+  color: var(--diff-title-color);
   font-size: var(--text-lg);
   font-weight: 500;
 }
 
 .diff__card p {
   font-size: var(--text-sm);
-  color: var(--color-muted);
+  color: var(--diff-text-color);
   line-height: 1.7;
 }
 
-/* Card de destaque — fundo escuro */
 .diff__card--featured {
-  background: var(--color-dark-bg);
+  background: var(--diff-featured-bg);
 }
 
 .diff__card--featured:hover {
-  background: #3a2a1e;
+  background: var(--diff-featured-hover-bg);
 }
 
 .diff__card--featured .diff__icon,
 .diff__card--featured h3 {
-  color: var(--color-tender);
+  color: var(--diff-featured-icon-color);
+}
+
+.diff__card--featured h3 {
+  color: var(--diff-featured-title-color);
 }
 
 .diff__card--featured p {
-  color: rgba(232, 201, 160, 0.75);
+  color: var(--diff-featured-text-color);
 }
 
 .diff__card--featured .diff__blob {
@@ -196,7 +188,5 @@
    ================================================== */
 
 @media (max-width: 639px) {
-  .diff__card {
-    min-height: 160px;
-  }
+  .diff__card { min-height: 160px; }
 }

@@ -5,17 +5,6 @@
 
 
 /* ==================================================
-   TOKENS LOCAIS
-   ================================================== */
-
-:root {
-  --header-height:     clamp(60px, 7vw, 76px);
-  --drawer-width:      min(420px, 88vw);
-  --overlay-bg:        var(--color-dark-bg);
-}
-
-
-/* ==================================================
    HEADER
    ================================================== */
 
@@ -35,8 +24,8 @@
 }
 
 .header-section.scrolled {
-  border-bottom-color: var(--color-border);
-  background: rgba(253, 253, 253, 0.97);
+  border-bottom-color: var(--header-border-scrolled);
+  background: var(--header-bg-scrolled);
 }
 
 .header-section .container {
@@ -57,7 +46,7 @@
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   font-weight: 500;
   letter-spacing: -0.02em;
-  color: var(--color-primary);
+  color: var(--header-logo-color);
   position: relative;
   z-index: var(--z-above);
   transition: opacity var(--transition-fast);
@@ -78,9 +67,9 @@
   font-size: var(--text-xs);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: var(--header-trigger-color);
   padding: 0.5rem 0.9rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--header-trigger-border);
   border-radius: var(--radius-sm);
   background: transparent;
   position: relative;
@@ -89,17 +78,15 @@
     background   var(--transition-fast),
     border-color var(--transition-fast),
     color        var(--transition-fast);
-  /* Touch target mínimo 44px */
   min-height: 44px;
   -webkit-tap-highlight-color: transparent;
 }
 
 .header__menu-trigger:hover {
-  background: var(--color-surface);
-  border-color: var(--color-primary);
+  background: var(--header-trigger-hover-bg);
+  border-color: var(--header-trigger-hover-border);
 }
 
-/* Hamburger animado */
 .header__hamburger {
   display: flex;
   flex-direction: column;
@@ -121,7 +108,6 @@
     opacity   0.25s ease;
 }
 
-/* Estado: aberto → X */
 .header__menu-trigger[aria-expanded="true"] .header__hamburger span:nth-child(1) {
   transform: translateY(5.5px) rotate(45deg);
 }
@@ -135,14 +121,14 @@
 
 
 /* ==================================================
-   SCRIM (backdrop semitransparente)
+   SCRIM
    ================================================== */
 
 .nav-scrim {
   position: fixed;
   inset: 0;
   z-index: calc(var(--z-overlay) - 1);
-  background: rgba(0, 0, 0, 0.55);
+  background: var(--scrim-bg);
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   opacity: 0;
@@ -157,7 +143,7 @@
 
 
 /* ==================================================
-   MENU DRAWER — Lateral direita
+   MENU DRAWER
    ================================================== */
 
 .nav-overlay {
@@ -167,7 +153,7 @@
   bottom: 0;
   width: var(--drawer-width);
   z-index: var(--z-overlay);
-  background: var(--overlay-bg);
+  background: var(--drawer-bg);
   display: flex;
   flex-direction: column;
   padding: var(--header-height) 0 0;
@@ -175,7 +161,6 @@
   transition: transform 0.45s var(--ease-out);
   overflow-y: auto;
   overscroll-behavior: contain;
-  /* Scroll suave no iOS */
   -webkit-overflow-scrolling: touch;
 }
 
@@ -183,7 +168,6 @@
   transform: translateX(0);
 }
 
-/* Inner padding */
 .nav-overlay__inner {
   display: flex;
   flex-direction: column;
@@ -210,13 +194,13 @@
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4.5vw, 3rem);
   font-style: italic;
-  color: rgba(255, 255, 255, 0.25);
+  color: var(--drawer-link-color);
   line-height: 1.15;
   letter-spacing: -0.02em;
   padding-block: 0.6rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--drawer-link-border);
   transition:
-    color     0.25s ease,
+    color        0.25s ease,
     padding-left 0.25s ease;
   -webkit-tap-highlight-color: transparent;
 }
@@ -227,33 +211,31 @@
 
 .nav-overlay__link:hover,
 .nav-overlay__link:focus-visible {
-  color: #ffffff;
+  color: var(--drawer-link-hover);
   opacity: 1;
   padding-left: 0.5rem;
 }
 
 .nav-overlay__link.nav-overlay__link--active {
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--drawer-link-active);
 }
 
-/* Número */
 .nav-overlay__num {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.15em;
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--drawer-num-color);
   font-style: normal;
   flex-shrink: 0;
   transition: color 0.25s ease;
 }
 
 .nav-overlay__link:hover .nav-overlay__num {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--drawer-num-hover);
 }
 
-/* Touch: links mais visíveis */
 @media (hover: none) {
-  .nav-overlay__link { color: rgba(255, 255, 255, 0.75); }
+  .nav-overlay__link { color: var(--drawer-link-touch); }
 }
 
 
@@ -264,7 +246,7 @@
 .nav-overlay__footer {
   margin-top: auto;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--drawer-footer-border);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -275,7 +257,7 @@
 .nav-overlay__copy {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.2);
+  color: var(--drawer-copy-color);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -288,40 +270,26 @@
 .nav-overlay__social-link {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.3);
+  color: var(--drawer-social-color);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   transition: color 0.25s ease;
 }
 
 .nav-overlay__social-link:hover {
-  color: #ffffff;
+  color: var(--drawer-social-hover);
   opacity: 1;
 }
 
 
 /* ==================================================
-   RESPONSIVO — Celular landscape (altura pequena)
+   RESPONSIVO
    ================================================== */
 
 @media (max-height: 500px) {
-  .nav-overlay__inner {
-    padding-block: 1.25rem;
-  }
-  .nav-overlay__link {
-    font-size: clamp(1.2rem, 4vh, 1.8rem);
-    padding-block: 0.4rem;
-  }
-  .nav-overlay__footer {
-    padding-top: 1rem;
-  }
-}
-
-/* Drawer mais largo em tablets */
-@media (min-width: 768px) {
-  :root {
-    --drawer-width: min(480px, 55vw);
-  }
+  .nav-overlay__inner { padding-block: 1.25rem; }
+  .nav-overlay__link  { font-size: clamp(1.2rem, 4vh, 1.8rem); padding-block: 0.4rem; }
+  .nav-overlay__footer { padding-top: 1rem; }
 }
 
 
@@ -332,7 +300,7 @@
 .nav-overlay__location {
   margin-top: 2rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid var(--drawer-footer-border);
   display: flex;
   flex-direction: column;
   gap: 0.9rem;
@@ -343,7 +311,7 @@
   font-size: var(--text-xs);
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.25);
+  color: var(--drawer-location-label);
   display: flex;
   align-items: center;
   gap: 0.4rem;
@@ -354,7 +322,7 @@
   display: block;
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid var(--drawer-map-border);
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
@@ -363,7 +331,7 @@
   display: block;
   width: 100%;
   height: 140px;
-  pointer-events: none; /* clique vai para o <a> */
+  pointer-events: none;
   filter: grayscale(1) invert(1) brightness(0.55);
   transition: filter var(--transition-fast);
 }
@@ -383,14 +351,14 @@
   font-size: var(--text-xs);
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.55);
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+  color: var(--drawer-map-overlay-color);
+  background: var(--drawer-map-gradient);
   transition: color var(--transition-fast);
   gap: 0.4rem;
 }
 
 .nav-overlay__map-wrap:hover .nav-overlay__map-overlay {
-  color: #fff;
+  color: var(--drawer-map-overlay-hover);
 }
 
 .nav-overlay__address {
@@ -398,11 +366,10 @@
   font-size: var(--text-xs);
   letter-spacing: 0.06em;
   line-height: 1.8;
-  color: rgba(255,255,255,0.35);
+  color: var(--drawer-address-color);
   font-style: normal;
 }
 
-/* Ocultar mapa em telas muito baixas */
 @media (max-height: 600px) {
   .nav-overlay__map { height: 90px; }
 }

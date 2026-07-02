@@ -4,7 +4,7 @@
    ============================================================ */
 
 .hero-section {
-  background: var(--gradient-aurora);
+  background: var(--hero-bg);
   min-height: 100dvh;
   display: flex;
   align-items: center;
@@ -20,7 +20,6 @@
   width: 100%;
 }
 
-/* Mobile: imagem acima do texto */
 .hero__image { order: -1; }
 .hero__text  { order: 1; }
 
@@ -41,12 +40,12 @@
   display: block;
   width: 2rem;
   height: 1px;
-  background: var(--color-muted);
+  background: var(--hero-eyebrow-line);
   flex-shrink: 0;
 }
 
 .hero__title {
-  color: var(--color-heading);
+  color: var(--hero-title-color);
   margin-bottom: var(--space-lg);
   max-width: 14ch;
   font-weight: 200;
@@ -56,7 +55,7 @@
 
 .hero__title span {
   font-style: italic;
-  color: var(--color-muted);
+  color: var(--hero-span-color);
   font-weight: 200;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -64,24 +63,25 @@
 
 .hero__body {
   max-width: 48ch;
-  color: var(--color-muted);
+  color: var(--hero-body-color);
   margin-bottom: var(--space-xl);
 }
 
 .hero__title span#typed-word {
   font-style: italic;
-  color: var(--color-muted);
+  color: var(--hero-span-color);
   font-weight: 200;
   word-break: break-word;
   overflow-wrap: break-word;
-  border-right: 2px solid var(--color-muted);
+  border-right: 2px solid var(--hero-cursor-color);
   animation: blink-cursor 0.7s step-end infinite;
 }
 
 @keyframes blink-cursor {
-  0%, 100% { border-color: var(--color-muted); }
+  0%, 100% { border-color: var(--hero-cursor-color); }
   50%       { border-color: transparent; }
 }
+
 
 /* ==================================================
    HERO — CTAs
@@ -105,9 +105,9 @@
   text-transform: uppercase;
   padding: 1rem 1.75rem;
   min-height: 48px;
-  border: 1px solid var(--color-heading);
+  border: 1px solid var(--hero-cta-border);
   border-radius: var(--radius-sm);
-  color: var(--color-heading);
+  color: var(--hero-cta-color);
   background: transparent;
   transition:
     background var(--transition-fast),
@@ -116,19 +116,18 @@
 
 .hero__cta:hover {
   opacity: 1;
-  background: var(--color-heading);
-  color: var(--color-background);
+  background: var(--hero-cta-hover-bg);
+  color: var(--hero-cta-hover-color);
 }
 
-/* Variante ghost — preenchido por padrão, inverte no hover */
 .hero__cta--ghost {
-  background: var(--color-heading);
-  color: var(--color-background);
+  background: var(--hero-cta-ghost-bg);
+  color: var(--hero-cta-ghost-color);
 }
 
 .hero__cta--ghost:hover {
   background: transparent;
-  color: var(--color-heading);
+  color: var(--hero-cta-color);
 }
 
 .hero__cta i {
@@ -149,14 +148,14 @@
   flex-wrap: wrap;
   margin-top: var(--space-xl);
   padding-top: var(--space-lg);
-  border-top: 1px solid #00000010;
+  border-top: 1px solid var(--hero-stat-border);
 }
 
 .hero__stats > div {
   display: flex;
   flex-direction: column;
   padding-right: clamp(1.25rem, 4vw, 3rem);
-  border-right: 1px solid #00000010;
+  border-right: 1px solid var(--hero-stat-border);
 }
 
 .hero__stats > div:not(:first-child) {
@@ -173,12 +172,12 @@
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   font-weight: 500;
   display: block;
-  color: var(--color-heading);
+  color: var(--hero-stat-num-color);
 }
 
 .hero__stat-label {
   font-size: var(--text-sm);
-  color: var(--color-muted);
+  color: var(--hero-stat-label-color);
   display: block;
   margin-top: 0.15rem;
 }
@@ -201,11 +200,6 @@
   .hero__content { grid-template-columns: 1.35fr 1fr; }
 }
 
-
-/* ==================================================
-   MOBILE
-   ================================================== */
-
 @media (max-width: 899px) {
   .hero__text {
     display: flex;
@@ -224,17 +218,9 @@
     text-align: left;
   }
 
-  .hero__title {
-    max-width: 100%;
-  }
-
-  .hero__ctas {
-    justify-content: flex-start;
-  }
-
-  .hero__stats {
-    justify-content: flex-start;
-  }
+  .hero__title { max-width: 100%; }
+  .hero__ctas  { justify-content: flex-start; }
+  .hero__stats { justify-content: flex-start; }
 }
 
 
@@ -247,7 +233,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  line-height: 0;         /* remove espaço fantasma do inline */
+  line-height: 0;
   overflow: hidden;
 }
 

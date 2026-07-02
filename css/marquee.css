@@ -6,8 +6,8 @@
 .marquee-section {
   --marquee-speed: 38s;
   padding-block: clamp(2rem, 4vw, 3.5rem);
-  background: var(--color-heading);
-  color: var(--color-tender);
+  background: var(--marquee-bg);
+  color: var(--marquee-text-color);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -18,7 +18,6 @@
   display: flex;
   overflow: hidden;
   width: 100%;
-  /* Fade nas bordas */
   mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
@@ -45,7 +44,7 @@
 
 .marquee__sep {
   display: inline-block;
-  color: rgba(255,255,255,0.2);
+  color: var(--marquee-sep-color);
   font-style: normal;
   font-size: 0.5em;
   padding-inline: clamp(1rem, 3vw, 2rem);

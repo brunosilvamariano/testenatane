@@ -4,7 +4,7 @@
    ============================================================ */
 
 .faq-section {
-  background: var(--color-background);
+  background: var(--faq-bg);
 }
 
 .faq__header {
@@ -14,7 +14,7 @@
 
 .faq__header h2 {
   margin-top: var(--space-sm);
-  color: var(--color-primary);
+  color: var(--faq-heading-color);
 }
 
 .faq__list {
@@ -23,17 +23,12 @@
 }
 
 .faq__item {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--faq-border-color);
 }
 
 .faq__item:first-child {
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--faq-border-color);
 }
-
-
-/* ==================================================
-   TRIGGER
-   ================================================== */
 
 .faq__trigger {
   display: flex;
@@ -46,7 +41,7 @@
   border: none;
   cursor: pointer;
   text-align: left;
-  color: var(--color-primary);
+  color: var(--faq-trigger-color);
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -60,12 +55,12 @@
   width: 2rem;
   height: 2rem;
   min-width: 2rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--faq-icon-border);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-muted);
+  color: var(--faq-icon-color);
   flex-shrink: 0;
   transition:
     background   var(--transition-fast),
@@ -74,9 +69,9 @@
 }
 
 .faq__item.active .faq__icon-wrap {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: var(--color-background);
+  background: var(--faq-icon-active-bg);
+  border-color: var(--faq-icon-active-border);
+  color: var(--faq-icon-active-color);
 }
 
 .faq__icon {
@@ -89,11 +84,6 @@
 .faq__item.active .faq__icon {
   transform: rotate(45deg);
 }
-
-
-/* ==================================================
-   PAINEL — Animação via grid-template-rows
-   ================================================== */
 
 .faq__answer-wrapper {
   display: grid;
@@ -111,7 +101,7 @@
 
 .faq__answer {
   padding-bottom: clamp(1rem, 2.5vw, 1.5rem);
-  color: var(--color-secondary);
+  color: var(--faq-answer-color);
   font-size: var(--text-sm);
   line-height: 1.75;
   max-width: 68ch;
@@ -120,15 +110,14 @@
 code {
   font-family: var(--font-mono);
   font-size: 0.9em;
-  background: var(--color-surface);
+  background: var(--faq-code-bg);
   padding: 0.1em 0.35em;
   border-radius: var(--radius-sm);
-  color: var(--color-primary);
+  color: var(--faq-code-color);
 }
 
-/* Touch feedback */
 @media (hover: none) {
   .faq__trigger:active .faq__icon-wrap {
-    background: var(--color-surface);
+    background: var(--faq-touch-hover-bg);
   }
 }

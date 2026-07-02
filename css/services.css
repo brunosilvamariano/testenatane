@@ -3,7 +3,7 @@
    ============================================================ */
 
 .services-section {
-  background: var(--color-background);
+  background: var(--services-bg);
 }
 
 .services__header {
@@ -12,9 +12,10 @@
 
 .services__header h2 {
   margin-top: var(--space-sm);
-  color: var(--color-heading);
+  color: var(--services-heading-color);
   font-weight: 300;
 }
+
 
 /* ================================================
    GRID DE 6 CARDS
@@ -40,19 +41,20 @@
   gap: 0.75rem;
 }
 
+
 /* ================================================
    SVC-CARD
    ================================================ */
 
 .svc-card {
-  background: #ffffff;
+  background: var(--svc-card-bg);
   border-radius: 1.25rem;
-  box-shadow: 0 2px 20px rgba(0,0,0,.06);
+  box-shadow: var(--svc-card-shadow);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border: 1px solid #0000001a;
+  border: 1px solid var(--svc-card-border);
 }
 
 .svc-card__top {
@@ -67,9 +69,9 @@
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background: var(--color-surface);
+  background: var(--svc-icon-bg);
   border-radius: 0.6rem;
-  color: var(--color-muted);
+  color: var(--svc-icon-color);
   font-size: 1.1rem;
 }
 
@@ -78,7 +80,7 @@
   height: 64px;
   object-fit: cover;
   border-radius: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  box-shadow: var(--svc-img-shadow);
 }
 
 .svc-card__body {
@@ -90,7 +92,7 @@
 .svc-card__title {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--color-heading);
+  color: var(--svc-title-color);
   line-height: 1.2;
   margin: 0;
 }
@@ -98,7 +100,7 @@
 .svc-card__meta {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--color-muted);
+  color: var(--svc-meta-color);
   letter-spacing: 0.02em;
   margin: 0;
 }
@@ -106,28 +108,28 @@
 .svc-card__pages {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--color-muted);
+  color: var(--svc-meta-color);
   text-align: right;
   letter-spacing: 0.04em;
   margin: 0;
 }
+
 
 /* ================================================
    SVC-CONTROL  (assinatura + cta)
    ================================================ */
 
 .svc-control {
-  background: #fff;
+  background: var(--svc-control-bg);
   border-radius: 1.25rem;
-  box-shadow: 0 2px 20px rgba(0,0,0,.06);
+  box-shadow: var(--svc-control-shadow);
   padding: 1.25rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border: 1px solid #0000001a;
+  border: 1px solid var(--svc-control-border);
 }
 
-/* Wrapper da assinatura */
 .svc-control__sig-wrap {
   position: relative;
   display: flex;
@@ -136,29 +138,26 @@
   gap: 0.35rem;
 }
 
-
 @keyframes sig-draw {
   to { stroke-dashoffset: 0; }
 }
 
-/* Nome abaixo da linha */
 .svc-control__sig-name {
   font-family: 'Georgia', 'Times New Roman', serif;
   font-size: 0.8rem;
   font-style: italic;
   letter-spacing: 0.08em;
-  color: var(--color-muted);
+  color: var(--svc-sig-name-color);
 }
 
-/* CTA */
 .svc-control__cta {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.85rem 1.5rem;
-  background: rgba(0, 0, 0, 0.85);
-  color: var(--color-background);
+  background: var(--svc-cta-bg);
+  color: var(--svc-cta-color);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   letter-spacing: 0.06em;
@@ -172,9 +171,9 @@
 }
 
 .svc-control__cta:hover {
-  background: var(--color-heading);
+  background: var(--svc-cta-hover-bg);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,.18);
+  box-shadow: var(--svc-cta-hover-shadow);
 }
 
 .svc-control__cta i {

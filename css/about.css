@@ -4,9 +4,8 @@
    ============================================================ */
 
 .about-section {
-  background: var(--color-background);
+  background: var(--about-bg);
   position: relative;
-  
 }
 
 .about__content {
@@ -14,7 +13,6 @@
   grid-template-columns: 1fr;
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: center;
-  
 }
 
 @media (min-width: 900px) {
@@ -44,18 +42,17 @@
   border-radius: var(--radius-md);
   border: 2px solid transparent;
   transition:
-    flex 0.65s var(--ease-out),
+    flex         0.65s var(--ease-out),
     border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    box-shadow   0.3s ease;
 }
 
 .about__slide--active {
   flex: 7 1 0%;
-  border-color: #00000010;
+  border-color: var(--about-slide-active-border);
   box-shadow: var(--shadow-lg);
 }
 
-/* Imagem de fundo */
 .about__slide-bg {
   position: absolute;
   inset: 0;
@@ -72,12 +69,11 @@
   transform: scale(1);
 }
 
-/* Gradiente inferior */
 .about__slide::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 55%);
+  background: var(--about-slide-gradient);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.4s ease;
@@ -87,7 +83,6 @@
   opacity: 1;
 }
 
-/* Label */
 .about__slide-label {
   position: absolute;
   bottom: 1.25rem;
@@ -107,10 +102,10 @@
   height: 40px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: rgba(20, 20, 20, 0.8);
+  background: var(--about-icon-bg);
   backdrop-filter: blur(8px);
-  border: 1.5px solid rgba(255,255,255,0.15);
-  color: #fff;
+  border: 1.5px solid var(--about-icon-border);
+  color: var(--about-icon-color);
   font-size: 1rem;
   transition: transform 0.2s ease;
 }
@@ -129,12 +124,12 @@
   font-family: var(--font-heading);
   font-size: var(--text-lg);
   font-weight: 500;
-  color: #fff;
+  color: var(--about-title-color);
   white-space: nowrap;
   opacity: 0;
   transform: translateX(20px);
   transition:
-    opacity 0.45s var(--ease-out) 0.15s,
+    opacity   0.45s var(--ease-out) 0.15s,
     transform 0.45s var(--ease-out) 0.15s;
 }
 
@@ -142,12 +137,12 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
-  color: rgba(255,255,255,0.65);
+  color: var(--about-sub-color);
   white-space: nowrap;
   opacity: 0;
   transform: translateX(20px);
   transition:
-    opacity 0.45s var(--ease-out) 0.22s,
+    opacity   0.45s var(--ease-out) 0.22s,
     transform 0.45s var(--ease-out) 0.22s;
 }
 
@@ -171,12 +166,12 @@
 .about__text-col h2 {
   margin-top: var(--space-sm);
   margin-bottom: var(--space-lg);
-  color: var(--color-heading);
+  color: var(--about-heading-color);
   font-weight: 300;
 }
 
 .about__text-col p {
-  color: var(--color-muted);
+  color: var(--about-text-color);
   max-width: 52ch;
 }
 
@@ -192,7 +187,7 @@
 .about__dock-wrapper {
   margin-top: var(--space-xl);
   padding-top: var(--space-lg);
-  border-top: 1px solid #00000010;
+  border-top: 1px solid var(--about-dock-separator);
 }
 
 .about__dock {
@@ -200,8 +195,8 @@
   align-items: center;
   gap: 0.25rem;
   padding: 0.6rem 1rem;
-  background: var(--color-surface);
-  border: 1px solid #00000010;
+  background: var(--about-dock-bg);
+  border: 1px solid var(--about-dock-border);
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-sm);
 }
@@ -214,7 +209,7 @@
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  color: var(--color-primary);
+  color: var(--about-dock-icon-color);
   font-size: 1.15rem;
   opacity: 1;
   transition:
@@ -227,27 +222,25 @@
 
 .about__dock-item:hover {
   opacity: 1;
-  color: var(--color-primary);
-  background: var(--color-background);
+  color: var(--about-dock-icon-color);
+  background: var(--about-dock-hover-bg);
   transform: translateY(-6px) scale(1.22);
   box-shadow: var(--shadow-md);
 }
 
-/* Efeito magnético nos vizinhos */
 .about__dock-item:hover + .about__dock-item,
 .about__dock-item:has(+ .about__dock-item:hover) {
   transform: translateY(-3px) scale(1.1);
 }
 
-/* Tooltip */
 .about__dock-item::before {
   content: attr(data-tooltip);
   position: absolute;
   bottom: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%) translateY(4px);
-  background: var(--color-primary);
-  color: var(--color-background);
+  background: var(--about-tooltip-bg);
+  color: var(--about-tooltip-color);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   letter-spacing: 0.06em;
@@ -269,7 +262,7 @@
 .about__dock-divider {
   width: 1px;
   height: 24px;
-  background: #00000010;
+  background: var(--about-dock-divider);
   margin-inline: 0.35rem;
   flex-shrink: 0;
 }

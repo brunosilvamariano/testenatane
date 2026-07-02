@@ -4,11 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- =====================================================
-       SEO PRIMÁRIO
-       title: 50–60 chars | palavra-chave principal no início
-       description: 140–160 chars | inclui localidade + CTA
-       ===================================================== -->
   <title>Psicóloga Infantil em Joinville-SC | Natane Gonçalves</title>
   <meta name="description" content="Psicóloga Infantil em Joinville-SC. Atendimento especializado em psicoterapia infantil, neuropsicopedagogia e orientação familiar. CRP 12/23942. Agende agora.">
   <meta name="keywords" content="psicóloga infantil joinville, psicoterapia infantil joinville, neuropsicopedagoga joinville, ansiedade infantil, tcc infantil, orientação familiar joinville, desenvolvimento emocional infantil">
@@ -16,9 +11,6 @@
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <link rel="canonical" href="https://www.natanepsicologa.com.br/">
 
-  <!-- =====================================================
-       OPEN GRAPH — Facebook / WhatsApp / LinkedIn
-       ===================================================== -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.natanepsicologa.com.br/">
   <meta property="og:title" content="Psicóloga Infantil em Joinville-SC | Natane Gonçalves">
@@ -30,9 +22,6 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:site_name" content="Natane Gonçalves — Psicóloga Infantil">
 
-  <!-- =====================================================
-       TWITTER CARD
-       ===================================================== -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://www.natanepsicologa.com.br/">
   <meta name="twitter:title" content="Psicóloga Infantil em Joinville-SC | Natane Gonçalves">
@@ -40,7 +29,6 @@
   <meta name="twitter:image" content="https://www.natanepsicologa.com.br/images/og/og-natane.jpg">
   <meta name="twitter:image:alt" content="Natane Gonçalves — Psicóloga Infantil em Joinville-SC">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
   <link rel="shortcut icon" href="images/favicon/favicon.ico">
@@ -48,53 +36,54 @@
   <link rel="manifest" href="images/favicon/site.webmanifest">
   <meta name="theme-color" content="#FDFDFD">
 
-  <!-- =====================================================
-       PRECONNECT — reduz latência de recursos externos
-       ===================================================== -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-  <!-- Preload LCP — imagem principal carrega antes de tudo -->
   <link rel="preload" as="image" href="images/hero/hero.webp" fetchpriority="high">
 
-  <!-- Fontes — display:swap já evita FOIT, então pode carregar de forma não-bloqueante -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js" defer></script>
+
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,500;1,9..144,380;1,9..144,440&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" as="style" href="https://unpkg.com/aos@2.3.1/dist/aos.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,340;0,9..144,500;1,9..144,380;1,9..144,440&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
   </noscript>
 
-  <!-- CSS crítico (acima da dobra) — bloqueante, intencional -->
+  <!-- CSS crítico -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/reveal.css">
 
-  <!-- CSS não-crítico (abaixo da dobra) — carrega sem bloquear o first paint -->
-  <link rel="preload" as="style" href="css/about.css" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- CSS não-crítico -->
+  <link rel="preload" as="style" href="css/pain.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="css/diff.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/about.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="css/services.css" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" as="style" href="css/parallax.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="css/gallery.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="css/faq.css" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" as="style" href="css/parallax.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="css/contact.css" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" as="style" href="css/footer.css" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
-    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/pain.css">
     <link rel="stylesheet" href="css/diff.css">
+    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/services.css">
-    <link rel="stylesheet" href="css/parallax.css">
     <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/faq.css">
+    <link rel="stylesheet" href="css/parallax.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/footer.css">
   </noscript>
 
   <!-- Google Tag Manager -->
+  <!-- ATENÇÃO: substituir 'GTM-XXXXXXX' pelo ID real do contêiner antes de publicar (aqui e no <noscript> logo após a abertura do <body>) -->
   <script>
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
@@ -108,168 +97,135 @@
     })(window,document,'script','dataLayer','GTM-XXXXXXX');
   </script>
 
-  <!-- =====================================================
-       SCHEMA.ORG — Dados Estruturados
-       Múltiplos tipos: Person + MedicalBusiness + FAQPage
-       Aparece como rich result no Google
-       ===================================================== -->
-
-  <!-- 1. Person — autoridade da profissional -->
+  <!-- Schema.org: dados estruturados unificados em um único @graph (menos parsing, mesma cobertura) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": "https://www.natanepsicologa.com.br/#natane",
-    "name": "Natane K. K. Gonçalves",
-    "jobTitle": "Psicóloga Infantil",
-    "description": "Psicóloga Infantil (CRP 12/23942), Neuropsicopedagoga e pós-graduanda em Neuropsicologia. Atendimento especializado em Joinville-SC.",
-    "url": "https://www.natanepsicologa.com.br",
-    "image": "https://www.natanepsicologa.com.br/images/hero/hero.webp",
-    "telephone": "+5547996240418",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Joinville",
-      "addressRegion": "SC",
-      "addressCountry": "BR"
-    },
-    "sameAs": [
-      "https://www.instagram.com/natane.psicologa/",
-      "https://www.facebook.com/natanekuhn",
-      "https://www.youtube.com/@Natane-Psicologa"
-    ],
-    "knowsAbout": [
-      "Psicoterapia Infantil",
-      "Terapia Cognitivo-Comportamental",
-      "Neuropsicopedagogia",
-      "Neuropsicologia",
-      "Orientação Familiar",
-      "Ansiedade Infantil",
-      "Desenvolvimento Emocional"
-    ],
-    "hasCredential": {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Registro Profissional",
-      "name": "CRP 12/23942",
-      "recognizedBy": {
-        "@type": "Organization",
-        "name": "Conselho Regional de Psicologia — 12ª Região"
-      }
-    }
-  }
-  </script>
-
-  <!-- 2. MedicalBusiness — SEO local + saúde -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
-    "@id": "https://www.natanepsicologa.com.br/#business",
-    "name": "Natane Gonçalves — Psicóloga Infantil",
-    "image": "https://www.natanepsicologa.com.br/images/hero/hero.webp",
-    "url": "https://www.natanepsicologa.com.br",
-    "telephone": "+5547996240418",
-    "medicalSpecialty": "Psicologia Infantil",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Joinville",
-      "addressRegion": "SC",
-      "postalCode": "89200-000",
-      "addressCountry": "BR"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": -26.3044,
-      "longitude": -48.8487
-    },
-    "openingHoursSpecification": [
+    "@graph": [
       {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "08:00",
-        "closes": "18:00"
-      }
-    ],
-    "priceRange": "$$",
-    "currenciesAccepted": "BRL",
-    "paymentAccepted": "Dinheiro, Pix, Cartão",
-    "sameAs": [
-      "https://www.instagram.com/natane.psicologa/",
-      "https://www.facebook.com/natanekuhn"
-    ]
-  }
-  </script>
-
-  <!-- 3. FAQPage — rich snippet nas SERPs -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "A partir de qual idade a criança pode fazer terapia?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "O atendimento é indicado para crianças a partir dos 3 anos de idade. Nessa fase, a terapia lúdica é a principal ferramenta, permitindo que a criança se expresse por meio do brincar de forma natural e espontânea."
-        }
+        "@type": "Person",
+        "@id": "https://www.natanepsicologa.com.br/#natane",
+        "name": "Natane K. K. Gonçalves",
+        "jobTitle": "Psicóloga Infantil",
+        "description": "Psicóloga Infantil (CRP 12/23942), Neuropsicopedagoga e pós-graduanda em Neuropsicologia. Atendimento especializado em Joinville-SC.",
+        "url": "https://www.natanepsicologa.com.br",
+        "image": "https://www.natanepsicologa.com.br/images/hero/hero.webp",
+        "telephone": "+5547996240418",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Joinville",
+          "addressRegion": "SC",
+          "addressCountry": "BR"
+        },
+        "sameAs": [
+          "https://www.instagram.com/natane.psicologa/",
+          "https://www.facebook.com/natanekuhn",
+          "https://www.youtube.com/@Natane-Psicologa"
+        ],
+        "knowsAbout": [
+          "Psicoterapia Infantil",
+          "Terapia Cognitivo-Comportamental",
+          "Neuropsicopedagogia",
+          "Neuropsicologia",
+          "Orientação Familiar",
+          "Ansiedade Infantil",
+          "Desenvolvimento Emocional"
+        ],
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "credentialCategory": "Registro Profissional",
+          "name": "CRP 12/23942",
+          "recognizedBy": {
+            "@type": "Organization",
+            "name": "Conselho Regional de Psicologia — 12ª Região"
+          }
+        },
+        "worksFor": { "@id": "https://www.natanepsicologa.com.br/#business" }
       },
       {
-        "@type": "Question",
-        "name": "Com que frequência acontecem as sessões de psicoterapia infantil?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "As sessões são semanais, com duração de 50 minutos cada. A frequência pode ser ajustada conforme a evolução e as necessidades de cada criança ao longo do processo terapêutico."
-        }
+        "@type": ["MedicalBusiness", "Psychologist"],
+        "@id": "https://www.natanepsicologa.com.br/#business",
+        "name": "Natane Gonçalves — Psicóloga Infantil",
+        "image": "https://www.natanepsicologa.com.br/images/hero/hero.webp",
+        "url": "https://www.natanepsicologa.com.br",
+        "telephone": "+5547996240418",
+        "medicalSpecialty": "Psicologia Infantil",
+        "founder": { "@id": "https://www.natanepsicologa.com.br/#natane" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Joinville",
+          "addressRegion": "SC",
+          "postalCode": "89200-000",
+          "addressCountry": "BR"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": -26.3044,
+          "longitude": -48.8487
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "priceRange": "$$",
+        "currenciesAccepted": "BRL",
+        "paymentAccepted": "Dinheiro, Pix, Cartão",
+        "sameAs": [
+          "https://www.instagram.com/natane.psicologa/",
+          "https://www.facebook.com/natanekuhn"
+        ]
       },
       {
-        "@type": "Question",
-        "name": "Os pais participam das sessões de psicologia infantil?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "A participação da família é fundamental. São realizadas sessões periódicas de orientação familiar, onde os pais recebem orientações e estratégias para apoiar o desenvolvimento da criança também em casa."
-        }
+        "@type": "FAQPage",
+        "@id": "https://www.natanepsicologa.com.br/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "A partir de qual idade a criança pode fazer terapia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "O atendimento é indicado para crianças a partir dos 3 anos de idade. Nessa fase, a terapia lúdica é a principal ferramenta, permitindo que a criança se expresse por meio do brincar de forma natural e espontânea."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Com que frequência acontecem as sessões de psicoterapia infantil?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "As sessões são semanais, com duração de 50 minutos cada. A frequência pode ser ajustada conforme a evolução e as necessidades de cada criança ao longo do processo terapêutico."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Os pais participam das sessões de psicologia infantil?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A participação da família é fundamental. São realizadas sessões periódicas de orientação familiar, onde os pais recebem orientações e estratégias para apoiar o desenvolvimento da criança também em casa."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como saber se meu filho precisa de acompanhamento psicológico?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mudanças de comportamento, dificuldades escolares, crises de choro frequentes, medos intensos, agressividade ou isolamento são alguns sinais que merecem atenção. Entre em contato para uma conversa inicial — juntos podemos entender melhor a situação."
+            }
+          }
+        ]
       },
       {
-        "@type": "Question",
-        "name": "Como saber se meu filho precisa de acompanhamento psicológico?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Mudanças de comportamento, dificuldades escolares, crises de choro frequentes, medos intensos, agressividade ou isolamento são alguns sinais que merecem atenção. Entre em contato para uma conversa inicial — juntos podemos entender melhor a situação."
-        }
-      }
-    ]
-  }
-  </script>
-
-  <!-- 4. BreadcrumbList — navegação estruturada -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.natanepsicologa.com.br/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Sobre",
-        "item": "https://www.natanepsicologa.com.br/#sobre"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Serviços",
-        "item": "https://www.natanepsicologa.com.br/#servicos"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "Contato",
-        "item": "https://www.natanepsicologa.com.br/#contato"
+        "@type": "BreadcrumbList",
+        "@id": "https://www.natanepsicologa.com.br/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.natanepsicologa.com.br/" },
+          { "@type": "ListItem", "position": 2, "name": "Sobre", "item": "https://www.natanepsicologa.com.br/#sobre" },
+          { "@type": "ListItem", "position": 3, "name": "Serviços", "item": "https://www.natanepsicologa.com.br/#servicos" },
+          { "@type": "ListItem", "position": 4, "name": "Contato", "item": "https://www.natanepsicologa.com.br/#contato" }
+        ]
       }
     ]
   }
@@ -286,10 +242,8 @@
     title="Google Tag Manager"></iframe>
 </noscript>
 
-<!-- Skip Link (acessibilidade + SEO técnico) -->
 <a class="skip-link" href="#main-content">Pular para o conteúdo</a>
 
-<!-- SCRIM -->
 <div class="nav-scrim" id="navScrim" aria-hidden="true"></div>
 
 <!-- ======================================================= -->
@@ -333,11 +287,10 @@
 </div>
 
 <!-- ======================================================= -->
-<!-- HEADER                                                  -->
+<!-- 1. HEADER                                               -->
 <!-- ======================================================= -->
 <header class="header-section" id="header">
   <div class="container">
-    <!-- Logo com texto descritivo para SEO -->
     <a href="#home" class="header__logo" aria-label="Natane Gonçalves — Psicóloga Infantil em Joinville-SC, ir para o início">Natane<sup>ps</sup></a>
 
     <button
@@ -355,26 +308,22 @@
   </div>
 </header>
 
-  <!-- ======================================================= -->
-  <!-- CONTEÚDO PRINCIPAL                                      -->
-  <!-- ======================================================= -->
 <main id="main-content">
-  <!-- ===================================================== -->
-  <!-- HERO                                                  -->
-  <!-- H1 único, palavra-chave principal na abertura         -->
-  <!-- ===================================================== -->
+
+  <!-- ======================================================= -->
+  <!-- 2. HERO — Gancho emocional + proposta de valor + CTA    -->
+  <!-- Objetivo: prender em 5 segundos e gerar o primeiro CTA  -->
+  <!-- ======================================================= -->
   <section class="hero-section" id="home" aria-labelledby="hero-heading">
     <div class="container">
       <div class="hero__content">
 
-        <div class="hero__text" data-aos="fade-up">
-          <!-- Eyebrow como <p> + span — não usa heading para não poluir hierarquia -->
+        <div class="hero__text">
           <p class="section-eyebrow">
             <span class="mono-tag">Psicóloga Infantil em Joinville-SC</span>
           </p>
 
           <div class="hero__text-inner">
-            <!-- H1 único na página — palavra-chave "psicoterapia infantil" presente no body abaixo -->
             <h1 class="hero__title" id="hero-heading">
               Cada criança merece ser <span id="typed-word"></span>
             </h1>
@@ -391,7 +340,6 @@
               </a>
             </div>
 
-            <!-- Stats como <dl> — semântica correta para pares termo/valor -->
             <dl class="hero__stats">
               <div>
                 <dt class="hero__stat-label">CRP</dt>
@@ -409,8 +357,7 @@
           </div>
         </div>
 
-        <!-- figure com alt descritivo e rico em palavras-chave -->
-        <figure class="hero__image" data-aos="fade-up" data-aos-delay="120">
+        <figure class="hero__image">
           <div class="img-wrapper img-wrapper--hero">
             <img
               src="images/hero/hero.webp"
@@ -433,123 +380,69 @@
       </svg>
     </div>
   </section>
-  <!-- ===================================================== -->
-  <!-- ABOUT — H2 com nome completo = E-E-A-T               -->
-  <!-- ===================================================== -->
-  <section class="about-section section-padding" id="sobre" aria-labelledby="sobre-heading">
-    <div class="wave-divider wave-divider--top" aria-hidden="true">
-      <svg viewBox="0 0 960 80" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="transform: scaleY(-1);">
-        <path d="M0 45 C160 10 320 70 480 40 C640 10 800 65 960 35 L960 80 L0 80 Z" fill="var(--wave-top)" opacity="0.2"/>
-        <path d="M0 55 C200 25 360 80 540 50 C720 22 840 70 960 45 L960 80 L0 80 Z" fill="var(--wave-top)" opacity="0.5"/>
-        <path d="M0 68 C240 45 400 80 600 60 C760 45 880 75 960 62 L960 80 L0 80 Z" fill="var(--wave-top)"/>
-      </svg>
-    </div>
+
+  <!-- ======================================================= -->
+  <!-- 3. DOR — Identificação com o problema do visitante      -->
+  <!-- Objetivo: fazer o pai/mãe se reconhecer e continuar     -->
+  <!-- SEÇÃO NOVA                                              -->
+  <!-- ======================================================= -->
+  <section class="pain-section section-padding" id="sinais" aria-labelledby="pain-heading">
     <div class="container">
-      <div class="about__content">
-        <div class="about__slider" id="aboutSlider" role="list" aria-label="Áreas de atuação da psicóloga Natane Gonçalves">
-          <div class="about__slide about__slide--active" role="listitem" data-index="0">
-            <div class="about__slide-bg" style="background-image: url('images/about/about1.webp')"></div>
-              <div class="about__slide-label">
-                <div class="about__slide-icon"><i class="bi bi-heart-pulse" aria-hidden="true"></i></div>
-                <div class="about__slide-info">
-                <span class="about__slide-title">Psicoterapia Infantil</span>
-                <span class="about__slide-sub">TCC &amp; Desenvolvimento</span>
-                </div>
-              </div>
-            </div>
 
-            <div class="about__slide" role="listitem" data-index="1">
-              <div class="about__slide-bg" style="background-image: url('images/about/about2.webp')"></div>
-              <div class="about__slide-label">
-                <div class="about__slide-icon"><i class="bi bi-journal-richtext" aria-hidden="true"></i></div>
-                <div class="about__slide-info">
-                  <span class="about__slide-title">Neuropsicopedagogia</span>
-                  <span class="about__slide-sub">Aprendizagem &amp; Cognição</span>
-                </div>
-              </div>
-            </div>
+      <header class="pain__header">
+        <p class="section-eyebrow">
+          <span class="mono-tag">Você reconhece algum destes sinais?</span>
+        </p>
+        <h2 id="pain-heading">Quando é hora de buscar ajuda</h2>
+        <p class="pain__desc">
+          Cada criança tem seu jeito de pedir socorro. Às vezes é um choro sem motivo aparente. Às vezes é o silêncio. Se você identificar algum destes sinais no seu filho, uma conversa pode mudar tudo.
+        </p>
+      </header>
 
-            <div class="about__slide" role="listitem" data-index="2">
-              <div class="about__slide-bg" style="background-image: url('images/about/about3.webp')"></div>
-              <div class="about__slide-label">
-                <div class="about__slide-icon"><i class="bi bi-people" aria-hidden="true"></i></div>
-                <div class="about__slide-info">
-                  <span class="about__slide-title">Orientação Familiar</span>
-                  <span class="about__slide-sub">Suporte &amp; Parceria</span>
-                </div>
-              </div>
-            </div>
+      <div class="pain__bot" id="painBot" aria-label="Assistente de triagem inicial">
+        <div class="pain__bot-head">
+          <span class="pain__bot-status" aria-hidden="true"></span>
+          <span class="pain__bot-label">Conte um pouco pra gente</span>
+          <span class="pain__bot-trust">Resposta em até 1h</span>
+          <span class="pain__bot-steps" id="painBotSteps">01 / 03</span>
+        </div>
 
-            <div class="about__slide" role="listitem" data-index="3">
-              <div class="about__slide-bg" style="background-image: url('images/about/about4.webp')"></div>
-              <div class="about__slide-label">
-                <div class="about__slide-icon"><i class="bi bi-emoji-smile" aria-hidden="true"></i></div>
-                <div class="about__slide-info">
-                  <span class="about__slide-title">Inteligência Emocional</span>
-                  <span class="about__slide-sub">Regulação &amp; Autonomia</span>
-                </div>
-              </div>
-            </div>
+        <div class="pain__bot-thread" id="painBotThread" aria-live="polite"></div>
 
+        <form class="pain__bot-form" id="painBotForm" autocomplete="off">
+          <textarea
+            id="painBotInput"
+            class="pain__bot-input"
+            rows="1"
+            aria-label="Sua resposta"
+          ></textarea>
+          <button type="submit" class="pain__bot-send" aria-label="Enviar resposta">
+            <i class="bi bi-arrow-up" aria-hidden="true"></i>
+          </button>
+        </form>
+
+        <noscript>
+          <div class="pain__bot-noscript">
+            <p>Para conversar por aqui é preciso ativar o JavaScript. Mas você pode falar direto comigo:</p>
+            <a class="pain__cta" href="https://wa.me/5547996240418?text=Olá!%20Gostaria%20de%20receber%20mais%20informações%20sobre%20o%20atendimento%20psicológico%20infantil.">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i> Chamar no WhatsApp
+            </a>
           </div>
-
-          <!-- Texto — E-E-A-T: Experience, Expertise, Authoritativeness, Trust -->
-          <div class="about__text-col" data-aos="fade-left" data-aos-delay="100">
-            <p class="section-eyebrow">
-              <span class="mono-tag">Conheça a Psicóloga</span>
-            </p>
-
-            <div class="about__text-inner">
-              <!-- H2 com nome completo reforça E-E-A-T e busca por nome -->
-              <h2 id="sobre-heading">Natane K. K. Gonçalves</h2>
-              <p>
-                Sou <strong>Psicóloga Infantil em Joinville-SC (CRP 12/23942)</strong>, <strong>Neuropsicopedagoga</strong> e pós-graduanda em <strong>Neuropsicologia</strong>. Atendo crianças com dificuldades de aprendizagem, desafios comportamentais e emocionais, oferecendo um cuidado acolhedor e individualizado.
-              </p>
-              <p>
-                Meu trabalho é fundamentado na <strong>Terapia Cognitivo-Comportamental (TCC)</strong>, promovendo o desenvolvimento da autonomia, das habilidades socioemocionais e da inteligência emocional — sempre com a participação ativa da família durante todo o processo terapêutico.
-              </p>
-
-              <div class="about__dock-wrapper">
-                <nav class="about__dock" aria-label="Redes sociais de Natane Gonçalves">
-                  <a href="https://wa.me/5547996240418?text=Olá!%20Gostaria%20de%20receber%20mais%20informações%20sobre%20o%20atendimento%20psicológico%20infantil."
-                    class="about__dock-item" target="_blank" rel="noopener noreferrer"
-                    aria-label="Conversar com Natane no WhatsApp" data-tooltip="WhatsApp">
-                    <i class="bi bi-whatsapp" aria-hidden="true"></i>
-                  </a>
-                  <div class="about__dock-divider" aria-hidden="true" role="separator"></div>
-                  <a href="https://www.instagram.com/natane.psicologa/"
-                    class="about__dock-item" target="_blank" rel="noopener noreferrer"
-                    aria-label="Seguir Natane no Instagram" data-tooltip="Instagram">
-                    <i class="bi bi-instagram" aria-hidden="true"></i>
-                  </a>
-                  <a href="https://www.facebook.com/natanekuhn"
-                    class="about__dock-item" target="_blank" rel="noopener noreferrer"
-                    aria-label="Seguir Natane no Facebook" data-tooltip="Facebook">
-                    <i class="bi bi-facebook" aria-hidden="true"></i>
-                  </a>
-                  <div class="about__dock-divider" aria-hidden="true" role="separator"></div>
-                  <a href="https://www.youtube.com/@Natane-Psicologa"
-                    class="about__dock-item" target="_blank" rel="noopener noreferrer"
-                    aria-label="Assistir vídeos de Natane no YouTube" data-tooltip="YouTube">
-                    <i class="bi bi-youtube" aria-hidden="true"></i>
-                  </a>
-                </nav>
-              </div>
-            </div>
-          </div>
-
+        </noscript>
       </div>
+
     </div>
   </section>
 
-  <!-- ===================================================== -->
-  <!-- DIFERENCIAIS                                          -->
-  <!-- ===================================================== -->
+  <!-- ======================================================= -->
+  <!-- 4. DIFERENCIAIS — Por que a Natane, não outra psicóloga -->
+  <!-- Objetivo: justificar a escolha antes de apresentar quem -->
+  <!-- ======================================================= -->
   <section class="diff-section section-padding" id="diferenciais" aria-labelledby="diferenciais-heading">
 
     <div class="container">
 
-      <header class="diff__header" data-aos="fade-up">
+      <header class="diff__header" data-reveal="up">
         <p class="section-eyebrow">
           <span class="mono-tag">Por que escolher</span>
         </p>
@@ -559,10 +452,9 @@
         </p>
       </header>
 
-      <ul class="diff__grid">
+      <ul class="diff__grid" data-reveal-group="up">
 
-        <!-- Card 1 — Acolhimento -->
-        <li class="diff__card" data-aos="fade-up" data-aos-delay="0">
+        <li class="diff__card">
           <div class="diff__card-gradient" aria-hidden="true">
             <span class="diff__blob diff__blob--1" style="background:#B5763A; --tx-1:0.6; --ty-1:-0.4; --tx-2:-0.5; --ty-2:0.7; --tx-3:0.3; --ty-3:0.5; --tx-4:-0.4; --ty-4:-0.6;"></span>
             <span class="diff__blob diff__blob--2" style="background:#D4955A; --tx-1:-0.3; --ty-1:0.5; --tx-2:0.6; --ty-2:-0.3; --tx-3:-0.5; --ty-3:0.6; --tx-4:0.4; --ty-4:-0.5;"></span>
@@ -575,8 +467,7 @@
           </div>
         </li>
 
-        <!-- Card 2 — Família -->
-        <li class="diff__card" data-aos="fade-up" data-aos-delay="80">
+        <li class="diff__card">
           <div class="diff__card-gradient" aria-hidden="true">
             <span class="diff__blob diff__blob--1" style="background:#C8687B; --tx-1:-0.5; --ty-1:0.4; --tx-2:0.6; --ty-2:-0.5; --tx-3:-0.4; --ty-3:0.6; --tx-4:0.3; --ty-4:-0.4;"></span>
             <span class="diff__blob diff__blob--2" style="background:#E8A8B0; --tx-1:0.3; --ty-1:-0.6; --tx-2:-0.4; --ty-2:0.5; --tx-3:0.6; --ty-3:-0.3; --tx-4:-0.5; --ty-4:0.4;"></span>
@@ -589,8 +480,7 @@
           </div>
         </li>
 
-        <!-- Card 3 — Base Científica -->
-        <li class="diff__card" data-aos="fade-up" data-aos-delay="160">
+        <li class="diff__card">
           <div class="diff__card-gradient" aria-hidden="true">
             <span class="diff__blob diff__blob--1" style="background:#7A9E6E; --tx-1:0.5; --ty-1:0.5; --tx-2:-0.6; --ty-2:-0.3; --tx-3:0.4; --ty-3:-0.5; --tx-4:-0.3; --ty-4:0.6;"></span>
             <span class="diff__blob diff__blob--2" style="background:#B5763A; --tx-1:-0.4; --ty-1:-0.5; --tx-2:0.5; --ty-2:0.4; --tx-3:-0.6; --ty-3:0.3; --tx-4:0.4; --ty-4:-0.4;"></span>
@@ -603,8 +493,7 @@
           </div>
         </li>
 
-        <!-- Card 4 — Individualizado (wide) -->
-        <li class="diff__card diff__card--wide" data-aos="fade-up" data-aos-delay="240">
+        <li class="diff__card diff__card--wide">
           <div class="diff__card-gradient" aria-hidden="true">
             <span class="diff__blob diff__blob--1" style="background:#D4955A; --tx-1:0.4; --ty-1:-0.5; --tx-2:-0.5; --ty-2:0.4; --tx-3:0.6; --ty-3:0.3; --tx-4:-0.3; --ty-4:-0.6;"></span>
             <span class="diff__blob diff__blob--2" style="background:#C8687B; --tx-1:-0.6; --ty-1:0.3; --tx-2:0.4; --ty-2:-0.5; --tx-3:-0.3; --ty-3:0.6; --tx-4:0.5; --ty-4:-0.4;"></span>
@@ -617,8 +506,7 @@
           </div>
         </li>
 
-        <!-- Card 5 — Destaque (featured, escuro) -->
-        <li class="diff__card diff__card--featured" data-aos="fade-up" data-aos-delay="320">
+        <li class="diff__card diff__card--featured">
           <div class="diff__card-gradient" aria-hidden="true">
             <span class="diff__blob diff__blob--1" style="background:#E8C9A0; --tx-1:-0.5; --ty-1:0.6; --tx-2:0.4; --ty-2:-0.4; --tx-3:-0.6; --ty-3:0.3; --tx-4:0.5; --ty-4:-0.5;"></span>
             <span class="diff__blob diff__blob--2" style="background:#B5763A; --tx-1:0.6; --ty-1:-0.3; --tx-2:-0.5; --ty-2:0.5; --tx-3:0.4; --ty-3:-0.6; --tx-4:-0.3; --ty-4:0.4;"></span>
@@ -636,19 +524,128 @@
 
   </section>
 
-  <!-- ===================================================== -->
-  <!-- SERVIÇOS — H2 + H3 por card = hierarquia correta     -->
-  <!-- ===================================================== -->
+  <!-- ======================================================= -->
+  <!-- 5. SOBRE — Quem está por trás do cuidado               -->
+  <!-- Objetivo: gerar confiança e identificação pessoal       -->
+  <!-- ======================================================= -->
+  <section class="about-section section-padding" id="sobre" aria-labelledby="sobre-heading">
+    <div class="wave-divider wave-divider--top" aria-hidden="true">
+      <svg viewBox="0 0 960 80" width="100%" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="transform: scaleY(-1);">
+        <path d="M0 45 C160 10 320 70 480 40 C640 10 800 65 960 35 L960 80 L0 80 Z" fill="var(--wave-top)" opacity="0.2"/>
+        <path d="M0 55 C200 25 360 80 540 50 C720 22 840 70 960 45 L960 80 L0 80 Z" fill="var(--wave-top)" opacity="0.5"/>
+        <path d="M0 68 C240 45 400 80 600 60 C760 45 880 75 960 62 L960 80 L0 80 Z" fill="var(--wave-top)"/>
+      </svg>
+    </div>
+    <div class="container">
+      <div class="about__content">
+        <div class="about__slider" id="aboutSlider" role="list" aria-label="Áreas de atuação da psicóloga Natane Gonçalves">
+
+          <div class="about__slide about__slide--active" role="listitem" data-index="0">
+            <div class="about__slide-bg" style="background-image: url('images/about/about1.webp')"></div>
+            <div class="about__slide-label">
+              <div class="about__slide-icon"><i class="bi bi-heart-pulse" aria-hidden="true"></i></div>
+              <div class="about__slide-info">
+                <span class="about__slide-title">Psicoterapia Infantil</span>
+                <span class="about__slide-sub">TCC &amp; Desenvolvimento</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__slide" role="listitem" data-index="1">
+            <div class="about__slide-bg" style="background-image: url('images/about/about2.webp')"></div>
+            <div class="about__slide-label">
+              <div class="about__slide-icon"><i class="bi bi-journal-richtext" aria-hidden="true"></i></div>
+              <div class="about__slide-info">
+                <span class="about__slide-title">Neuropsicopedagogia</span>
+                <span class="about__slide-sub">Aprendizagem &amp; Cognição</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__slide" role="listitem" data-index="2">
+            <div class="about__slide-bg" style="background-image: url('images/about/about3.webp')"></div>
+            <div class="about__slide-label">
+              <div class="about__slide-icon"><i class="bi bi-people" aria-hidden="true"></i></div>
+              <div class="about__slide-info">
+                <span class="about__slide-title">Orientação Familiar</span>
+                <span class="about__slide-sub">Suporte &amp; Parceria</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__slide" role="listitem" data-index="3">
+            <div class="about__slide-bg" style="background-image: url('images/about/about4.webp')"></div>
+            <div class="about__slide-label">
+              <div class="about__slide-icon"><i class="bi bi-emoji-smile" aria-hidden="true"></i></div>
+              <div class="about__slide-info">
+                <span class="about__slide-title">Inteligência Emocional</span>
+                <span class="about__slide-sub">Regulação &amp; Autonomia</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="about__text-col" data-reveal="left" data-reveal-delay="100">
+          <p class="section-eyebrow">
+            <span class="mono-tag">Conheça a Psicóloga</span>
+          </p>
+
+          <div class="about__text-inner">
+            <h2 id="sobre-heading">Natane K. K. Gonçalves</h2>
+            <p>
+              Sou <strong>Psicóloga Infantil em Joinville-SC (CRP 12/23942)</strong>, <strong>Neuropsicopedagoga</strong> e pós-graduanda em <strong>Neuropsicologia</strong>. Atendo crianças com dificuldades de aprendizagem, desafios comportamentais e emocionais, oferecendo um cuidado acolhedor e individualizado.
+            </p>
+            <p>
+              Meu trabalho é fundamentado na <strong>Terapia Cognitivo-Comportamental (TCC)</strong>, promovendo o desenvolvimento da autonomia, das habilidades socioemocionais e da inteligência emocional — sempre com a participação ativa da família durante todo o processo terapêutico.
+            </p>
+
+            <div class="about__dock-wrapper">
+              <nav class="about__dock" aria-label="Redes sociais de Natane Gonçalves">
+                <a href="https://wa.me/5547996240418?text=Olá!%20Gostaria%20de%20receber%20mais%20informações%20sobre%20o%20atendimento%20psicológico%20infantil."
+                  class="about__dock-item" target="_blank" rel="noopener noreferrer"
+                  aria-label="Conversar com Natane no WhatsApp" data-tooltip="WhatsApp">
+                  <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                </a>
+                <div class="about__dock-divider" aria-hidden="true" role="separator"></div>
+                <a href="https://www.instagram.com/natane.psicologa/"
+                  class="about__dock-item" target="_blank" rel="noopener noreferrer"
+                  aria-label="Seguir Natane no Instagram" data-tooltip="Instagram">
+                  <i class="bi bi-instagram" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.facebook.com/natanekuhn"
+                  class="about__dock-item" target="_blank" rel="noopener noreferrer"
+                  aria-label="Seguir Natane no Facebook" data-tooltip="Facebook">
+                  <i class="bi bi-facebook" aria-hidden="true"></i>
+                </a>
+                <div class="about__dock-divider" aria-hidden="true" role="separator"></div>
+                <a href="https://www.youtube.com/@Natane-Psicologa"
+                  class="about__dock-item" target="_blank" rel="noopener noreferrer"
+                  aria-label="Assistir vídeos de Natane no YouTube" data-tooltip="YouTube">
+                  <i class="bi bi-youtube" aria-hidden="true"></i>
+                </a>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 6. SERVIÇOS — O que exatamente é oferecido             -->
+  <!-- Objetivo: o visitante avalia se resolve o problema dele  -->
+  <!-- ======================================================= -->
   <section class="services-section section-padding" id="servicos" aria-labelledby="servicos-heading">
     <div class="container">
-      <header class="services__header" data-aos="fade-up">
+      <header class="services__header" data-reveal="up">
         <span class="mono-tag">Serviços</span>
         <h2 id="servicos-heading">Como posso ajudar seu filho</h2>
       </header>
 
-      <div class="services__grid" data-aos="fade-up" data-aos-delay="80">
+      <div class="services__grid" data-reveal-group="up">
 
-        <!-- Card 1 -->
         <div class="svc-ab-wrap">
           <div class="svc-card">
             <div class="svc-card__top">
@@ -671,7 +668,6 @@
           </div>
         </div>
 
-        <!-- Card 2 -->
         <div class="svc-ab-wrap">
           <div class="svc-card">
             <div class="svc-card__top">
@@ -694,7 +690,6 @@
           </div>
         </div>
 
-        <!-- Card 3 -->
         <div class="svc-ab-wrap">
           <div class="svc-card">
             <div class="svc-card__top">
@@ -717,7 +712,6 @@
           </div>
         </div>
 
-        <!-- Card 4 -->
         <div class="svc-ab-wrap">
           <div class="svc-card">
             <div class="svc-card__top">
@@ -740,7 +734,6 @@
           </div>
         </div>
 
-        <!-- Card 5 -->
         <div class="svc-ab-wrap">
           <div class="svc-card">
             <div class="svc-card__top">
@@ -763,7 +756,6 @@
           </div>
         </div>
 
-        <!-- Card 6 -->
         <div class="svc-ab-wrap">
           <div class="svc-card">
             <div class="svc-card__top">
@@ -789,214 +781,101 @@
       </div>
     </div>
   </section>
-    <!-- ===================================================== -->
-  <!-- PARALLAX CTA                                          -->
-  <!-- ===================================================== -->
-  <section aria-labelledby="parallax-heading" class="parallax-section">
-    <div class="container parallax-inner">
 
-      <!-- Esquerda: texto + CTA -->
-      <div class="parallax-left" data-aos="fade-right">
-        <span class="mono-tag section-eyebrow">Fale com a psicóloga</span>
-        <h2 id="parallax-heading">Cada criança tem seu <em>tempo.</em></h2>
-        <p>Atendimento infantil especializado em Joinville-SC. Um cuidado acolhedor, individualizado e baseado em evidências para o desenvolvimento do seu filho.</p>
-
-        <div class="parallax-input-wrap">
-          <i aria-hidden="true" class="bi bi-whatsapp"></i>
-          <span class="parallax-input-text">Vamos conversar?</span>
-          <a
-            href="https://wa.me/5547996240418?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20de%20psicologia%20infantil."
-            target="_blank"
-            rel="noopener noreferrer"
-            class="parallax-cta-btn"
-            aria-label="Agendar consulta pelo WhatsApp (abre em nova aba)">
-            Agendar agora
-            <i aria-hidden="true" class="bi bi-arrow-right"></i>
-          </a>
-        </div>
-
-        <p class="parallax-sub">Retorno em até 1 hora · CRP 12/23942</p>
-      </div>
-
-      <!-- Direita: carrossel infinito de imagens -->
-      <div aria-hidden="true" class="parallax-right" data-aos="fade-left">
-        <div class="parallax-carousel" id="parallaxCarousel">
-          <div class="parallax-track" id="parallaxTrack">
-
-            <!-- SET 1 -->
-            <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about1.webp"/>
-              <div class="parallax-img-caption">
-                <strong>Psicoterapia Infantil</strong>
-                <span>TCC &amp; Desenvolvimento</span>
-              </div>
-            </div>
-            <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about2.webp"/>
-              <div class="parallax-img-caption">
-                <strong>Neuropsicopedagogia</strong>
-                <span>Aprendizagem &amp; Cognição</span>
-              </div>
-            </div>
-            <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about3.webp"/>
-              <div class="parallax-img-caption">
-                <strong>Orientação Familiar</strong>
-                <span>Suporte &amp; Parceria</span>
-              </div>
-            </div>
-            <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about4.webp"/>
-              <div class="parallax-img-caption">
-                <strong>Inteligência Emocional</strong>
-                <span>Regulação &amp; Autonomia</span>
-              </div>
-            </div>
-
-            <!-- SET 2 — duplicado para loop infinito -->
-            <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about1.webp"/>
-              <div class="parallax-img-caption">
-                <strong>Psicoterapia Infantil</strong>
-                <span>TCC &amp; Desenvolvimento</span>
-              </div>
-            </div>
-            <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about2.webp"/>
-              <div class="parallax-img-caption">
-                <strong>Neuropsicopedagogia</strong>
-                <span>Aprendizagem &amp; Cognição</span>
-              </div>
-            </div>
-            <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about3.webp"/>
-              <div class="parallax-img-caption">
-                <strong>Orientação Familiar</strong>
-                <span>Suporte &amp; Parceria</span>
-              </div>
-            </div>
-            <div class="parallax-img">
-              <img alt="" loading="lazy" src="images/about/about4.webp"/>
-              <div class="parallax-img-caption">
-                <strong>Inteligência Emocional</strong>
-                <span>Regulação &amp; Autonomia</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===================================================== -->
-  <!-- GALERIA — filmstrip editorial + lightbox (própria, sem libs) -->
-  <!-- ===================================================== -->
-  <section class="gallery-section section-padding" id="galeria" aria-labelledby="gallery-heading">
+  <!-- ======================================================= -->
+  <!-- 7. GALERIA — Prova visual do ambiente                   -->
+  <!-- Objetivo: segurança de levar o filho até lá             -->
+  <!-- ======================================================= -->
+  <section class="bento-section" id="galeria" aria-labelledby="bento-heading">
     <div class="container">
-      <header class="gallery__header">
-        <p class="section-eyebrow"><span class="mono-tag">Galeria</span></p>
-        <h2 id="gallery-heading">O espaço por dentro</h2>
-        <p class="gallery__desc">Um retrato do consultório — pensado para que cada criança se sinta em casa antes mesmo de começar a sessão.</p>
+      <header class="bento__header" data-reveal="up">
+        <span class="mono-tag">Galeria</span>
+        <h2 id="bento-heading">Conheça o espaço</h2>
       </header>
     </div>
 
-    <div class="gallery__viewport">
-      <ul class="gallery__track" role="list">
+    <div class="gallery-masonry" id="galleryMasonry">
 
-        <li class="gallery__card">
-          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Onde estamos">
-            <span class="gallery__frame">
-              <img src="images/galeria/galeria123.webp"
-                alt="Fachada do prédio do consultório de psicologia infantil em Joinville"
-                width="560" height="900" loading="lazy" decoding="async">
-              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
-            </span>
-          </button>
-          <p class="gallery__caption">
-            <span class="gallery__index">01</span>
-            <span class="gallery__caption-text">Onde estamos</span>
-          </p>
-        </li>
+      <div class="g-cell g-cell--a"
+           data-src="images/galeria/galeria1.webp"
+           data-alt="Consultório de psicologia infantil em Joinville"
+           role="button" tabindex="0" aria-label="Ver imagem ampliada">
+        <img src="images/galeria/galeria1.webp"
+          alt="Consultório de psicologia infantil em Joinville — espaço acolhedor e seguro para crianças"
+          width="560" height="450" loading="lazy" decoding="async">
+        <span class="g-cell__num" aria-hidden="true">01</span>
+      </div>
 
-        <li class="gallery__card">
-          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Espaço lúdico">
-            <span class="gallery__frame">
-              <img src="images/galeria/galeria1.webp"
-                alt="Estante com brinquedos e materiais lúdicos usados na psicoterapia infantil"
-                width="560" height="450" loading="lazy" decoding="async">
-              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
-            </span>
-          </button>
-          <p class="gallery__caption">
-            <span class="gallery__index">02</span>
-            <span class="gallery__caption-text">Espaço lúdico</span>
-          </p>
-        </li>
+      <div class="g-cell g-cell--c"
+           data-src="images/galeria/galeria123.webp"
+           data-alt="Materiais lúdicos utilizados na psicoterapia infantil"
+           role="button" tabindex="0" aria-label="Ver imagem ampliada">
+        <img src="images/galeria/galeria123.webp"
+          alt="Materiais lúdicos e terapêuticos utilizados na psicoterapia infantil — jogos e brinquedos"
+          width="560" height="900" loading="lazy" decoding="async">
+        <span class="g-cell__num" aria-hidden="true">02</span>
+      </div>
 
-        <li class="gallery__card">
-          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Ambiente de trabalho">
-            <span class="gallery__frame">
-              <img src="images/galeria/galeria4.webp"
-                alt="Mesa de atendimento do consultório de psicologia infantil em Joinville"
-                width="560" height="450" loading="lazy" decoding="async">
-              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
-            </span>
-          </button>
-          <p class="gallery__caption">
-            <span class="gallery__index">03</span>
-            <span class="gallery__caption-text">Ambiente de trabalho</span>
-          </p>
-        </li>
+      <div class="g-cell g-cell--d"
+           data-src="images/galeria/galeria4.webp"
+           data-alt="Espaço terapêutico com mesa e estante"
+           role="button" tabindex="0" aria-label="Ver imagem ampliada">
+        <img src="images/galeria/galeria4.webp"
+          alt="Mesa e estante do consultório da psicóloga Natane Gonçalves — ambiente acolhedor"
+          width="560" height="450" loading="lazy" decoding="async">
+        <span class="g-cell__num" aria-hidden="true">03</span>
+      </div>
 
-        <li class="gallery__card">
-          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Conforto, cor e leveza">
-            <span class="gallery__frame">
-              <img src="images/galeria/galeria2.webp"
-                alt="Pelúcias coloridas no sofá do consultório — ambiente acolhedor para crianças"
-                width="560" height="450" loading="lazy" decoding="async">
-              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
-            </span>
-          </button>
-          <p class="gallery__caption">
-            <span class="gallery__index">04</span>
-            <span class="gallery__caption-text">Conforto, cor e leveza</span>
-          </p>
-        </li>
+      <div class="g-cell g-cell--b"
+           data-src="images/galeria/galeria2.webp"
+           data-alt="Brinquedos no consultório de psicologia infantil"
+           role="button" tabindex="0" aria-label="Ver imagem ampliada">
+        <img src="images/galeria/galeria2.webp"
+          alt="Brinquedos e pelúcias no consultório da psicóloga infantil Natane Gonçalves"
+          width="560" height="450" loading="lazy" decoding="async">
+        <span class="g-cell__num" aria-hidden="true">04</span>
+      </div>
 
-        <li class="gallery__card">
-          <button type="button" class="gallery__trigger" aria-label="Ampliar foto: Pequenos detalhes">
-            <span class="gallery__frame">
-              <img src="images/galeria/galeria3.webp"
-                alt="Detalhes e materiais terapêuticos sobre a bancada do consultório infantil"
-                width="560" height="450" loading="lazy" decoding="async">
-              <span class="gallery__zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
-            </span>
-          </button>
-          <p class="gallery__caption">
-            <span class="gallery__index">05</span>
-            <span class="gallery__caption-text">Pequenos detalhes</span>
-          </p>
-        </li>
+      <div class="g-cell g-cell--e"
+           data-src="images/galeria/galeria3.webp"
+           data-alt="Detalhe do espaço terapêutico — brinquedo de pelúcia"
+           role="button" tabindex="0" aria-label="Ver imagem ampliada">
+        <img src="images/galeria/galeria3.webp"
+          alt="Detalhe do espaço terapêutico — pelúcia colorida sobre bancada branca"
+          width="560" height="450" loading="lazy" decoding="async">
+        <span class="g-cell__num" aria-hidden="true">05</span>
+      </div>
 
-      </ul>
     </div>
 
-    <p class="gallery__hint mono-tag" aria-hidden="true">Arraste para o lado <i class="bi bi-arrow-right"></i></p>
+    <div class="gallery-footer" aria-hidden="true">
+      <span class="gallery-footer__line"></span>
+      <span class="gallery-footer__label">5 fotografias — consultório Joinville</span>
+      <span class="gallery-footer__line"></span>
+    </div>
+
+    <div class="gallery-modal" id="galleryModal" role="dialog" aria-modal="true" aria-label="Visualizar imagem">
+      <div class="gallery-modal__inner">
+        <img class="gallery-modal__img" id="galleryModalImg" src="" alt="">
+        <button class="gallery-modal__close" id="galleryModalClose" aria-label="Fechar imagem">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
   </section>
 
-  <!-- ===================================================== -->
-  <!-- FAQ — vinculado ao FAQPage schema = rich snippet      -->
-  <!-- ===================================================== -->
+  <!-- ======================================================= -->
+  <!-- 8. FAQ — Remove objeções antes do CTA final            -->
+  <!-- Objetivo: matar dúvidas e medos na hora certa           -->
+  <!-- ======================================================= -->
   <section class="faq-section section-padding" aria-labelledby="faq-heading">
     <div class="container">
-      <header class="faq__header" data-aos="fade-up">
+      <header class="faq__header" data-reveal="up">
         <span class="mono-tag">Dúvidas</span>
         <h2 id="faq-heading">Perguntas frequentes sobre psicologia infantil</h2>
       </header>
 
-      <dl class="faq__list">
+      <dl class="faq__list" data-reveal-group="up">
 
         <div class="faq__item">
           <dt>
@@ -1058,12 +937,82 @@
     </div>
   </section>
 
-  <!-- ===================================================== -->
-  <!-- CONTATO                                               -->
-  <!-- ===================================================== -->
+  <!-- ======================================================= -->
+  <!-- 9. PARALLAX CTA — Empurrão emocional final             -->
+  <!-- Objetivo: criar urgência suave antes do contato direto  -->
+  <!-- ======================================================= -->
+  <section aria-labelledby="parallax-heading" class="parallax-section">
+    <div class="container parallax-inner">
+
+      <div class="parallax-left" data-reveal="right">
+        <span class="mono-tag section-eyebrow">Fale com a psicóloga</span>
+        <h2 id="parallax-heading">Cada criança tem seu <em>tempo.</em></h2>
+        <p>Atendimento infantil especializado em Joinville-SC. Um cuidado acolhedor, individualizado e baseado em evidências para o desenvolvimento do seu filho.</p>
+
+        <div class="parallax-input-wrap">
+          <i aria-hidden="true" class="bi bi-whatsapp"></i>
+          <span class="parallax-input-text">Vamos conversar?</span>
+          <a
+            href="https://wa.me/5547996240418?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20consulta%20de%20psicologia%20infantil."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="parallax-cta-btn"
+            aria-label="Agendar consulta pelo WhatsApp (abre em nova aba)">
+            Agendar agora
+            <i aria-hidden="true" class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+
+        <p class="parallax-sub">Retorno em até 1 hora · CRP 12/23942</p>
+      </div>
+
+      <div aria-hidden="true" class="parallax-right" data-reveal="left">
+        <div class="parallax-carousel" id="parallaxCarousel">
+          <div class="parallax-track" id="parallaxTrack">
+
+            <div class="parallax-img">
+              <img alt="" loading="lazy" src="images/about/about1.webp"/>
+              <div class="parallax-img-caption">
+                <strong>Psicoterapia Infantil</strong>
+                <span>TCC &amp; Desenvolvimento</span>
+              </div>
+            </div>
+            <div class="parallax-img">
+              <img alt="" loading="lazy" src="images/about/about2.webp"/>
+              <div class="parallax-img-caption">
+                <strong>Neuropsicopedagogia</strong>
+                <span>Aprendizagem &amp; Cognição</span>
+              </div>
+            </div>
+            <div class="parallax-img">
+              <img alt="" loading="lazy" src="images/about/about3.webp"/>
+              <div class="parallax-img-caption">
+                <strong>Orientação Familiar</strong>
+                <span>Suporte &amp; Parceria</span>
+              </div>
+            </div>
+            <div class="parallax-img">
+              <img alt="" loading="lazy" src="images/about/about4.webp"/>
+              <div class="parallax-img-caption">
+                <strong>Inteligência Emocional</strong>
+                <span>Regulação &amp; Autonomia</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================= -->
+  <!-- 10. CONTATO — Conversão final                           -->
+  <!-- Objetivo: ação direta, sem atrito, sem formulário       -->
+  <!-- ======================================================= -->
   <section id="contato" class="contact-section section-padding" aria-labelledby="contato-heading">
     <div class="container">
-      <div class="contact__box" data-aos="fade-up">
+      <div class="contact__box" data-reveal="up">
 
         <div class="contact__image-wrap">
           <img
@@ -1096,12 +1045,12 @@
 </main>
 
 <!-- ======================================================= -->
-<!-- FOOTER                                                  -->
+<!-- 11. FOOTER                                              -->
 <!-- ======================================================= -->
 <footer class="footer-section" aria-label="Rodapé — Natane Gonçalves Psicóloga Infantil">
   <div class="container">
 
-    <div class="footer__inner">
+    <div class="footer__inner" data-reveal="up">
       <span class="footer__eyebrow">Contato</span>
       <p class="footer__headline" aria-hidden="true">Vamos cuidar<br><span class="footer__headline-muted">juntos?</span></p>
 
@@ -1121,6 +1070,7 @@
         <a href="#servicos">Serviços</a>
         <a href="#galeria">Galeria</a>
         <a href="#contato">Contato</a>
+        <!-- TODO: apontar para as páginas reais de Política de Privacidade e Termos de Uso quando publicadas -->
         <a href="#">Privacidade</a>
         <a href="#">Termos</a>
       </nav>
@@ -1144,31 +1094,6 @@
   </div>
 </footer>
 
-<!-- ===================================================== -->
-<!-- LIGHTBOX — visualização ampliada da galeria          -->
-<!-- ===================================================== -->
-<div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Visualização ampliada da galeria" aria-hidden="true">
-  <button type="button" class="lightbox__close" data-gallery-close aria-label="Fechar">
-    <i class="bi bi-x-lg" aria-hidden="true"></i>
-  </button>
-  <button type="button" class="lightbox__nav lightbox__nav--prev" data-gallery-prev aria-label="Foto anterior">
-    <i class="bi bi-chevron-left" aria-hidden="true"></i>
-  </button>
-  <button type="button" class="lightbox__nav lightbox__nav--next" data-gallery-next aria-label="Próxima foto">
-    <i class="bi bi-chevron-right" aria-hidden="true"></i>
-  </button>
-
-  <figure class="lightbox__figure">
-    <img class="lightbox__img" src="" alt="">
-    <figcaption class="lightbox__caption">
-      <span class="lightbox__index"></span>
-      <span class="lightbox__text"></span>
-    </figcaption>
-  </figure>
-</div>
-
-<!-- SCRIPTS -->
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
 <script src="js/main.js" defer></script>
 
 </body>
